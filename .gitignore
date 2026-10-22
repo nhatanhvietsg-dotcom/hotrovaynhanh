@@ -1,0 +1,12 @@
+dist/
+node_modules/
+.env
+.env.*
+!.env.example
+.DS_Store
+artifacts/
+
+# Netlify generated artifacts
+netlify-dist/
+.netlify/
+.netlify-runtime/
