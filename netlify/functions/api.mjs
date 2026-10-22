@@ -1,0 +1,12 @@
+import worker from '../../.netlify-runtime/api-core.mjs';
+const envNames = ['LEAD_MODE', 'GTM_ID', 'GA_ID', 'META_PIXEL_ID', 'CONSENT_NOTICE', 'CONSENT_VERSION', 'LEAD_WEBHOOK_URL', 'LEAD_WEBHOOK_TOKEN'];
+export default async function handler(request, context = {}) {
+  const path = new URL(request.url).pathname.replace(/\/$/, '');
+  if (!['/api/config', '/api/leads'].includes(path)) return new Response('Not found', { status: 404 });
+  const env = Object.fromEntries(envNames.map(name => [name, globalThis.Netlify?.env?.get(name) ?? process.env[name] ?? '']));
+  const headers = new Headers(request.headers);
+  // Use Netlify's request context, not a client-supplied Cloudflare header.
+  headers.set('cf-connecting-ip', context.ip || 'unknown-netlify-ip');
+  return worker.fetch(new Request(request, { headers }), env);
+}
+export const config = { path: ['/api/config', '/api/leads'] };

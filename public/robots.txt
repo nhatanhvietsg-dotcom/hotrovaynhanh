@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /
+# Private draft: remove Disallow only after legal and business configuration approval.
+Sitemap: https://hotrovaynhanh.com/sitemap.xml
