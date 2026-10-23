@@ -2,7 +2,7 @@ export const config = {
   brandName: 'Hỗ Trợ Vay Vốn', domain: 'hotrovaynhanh.com',
   minAmount: 500000, maxAmount: 30000000, amountStep: 500000, defaultAmount: 8500000,
   companyName: '[TÊN PHÁP NHÂN]', taxCode: '[MÃ SỐ THUẾ]', address: '[ĐỊA CHỈ]',
-  hotline: '[HOTLINE]', email: '[EMAIL]',
+  hotline: '0938443655', email: '[EMAIL]',
   // Keep false until official policies, controller details, and partner data flow are approved.
   legalApproved: false,
   emailConsentNotice: 'Tôi đồng ý gửi họ tên, số điện thoại, email (nếu nhập), nhu cầu, số tiền và nguồn quảng cáo đến hộp thư quản trị Hỗ Trợ Vay Vốn qua Netlify và Gmail để liên hệ, tư vấn. Không tự động chuyển hồ sơ cho đối tác.',
