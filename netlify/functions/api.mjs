@@ -1,10 +1,12 @@
 import { emailSender, smtpSetupRequired } from '../lib/lead-email.mjs';
+import { config as siteConfig } from '../../src/config.js';
 import worker from '../../.netlify-runtime/api-core.mjs';
 const envNames = ['LEAD_MODE', 'GTM_ID', 'GA_ID', 'META_PIXEL_ID', 'CONSENT_NOTICE', 'CONSENT_VERSION', 'LEAD_WEBHOOK_URL', 'LEAD_WEBHOOK_TOKEN', 'SMTP_HOST', 'SMTP_PORT', 'SMTP_SECURE', 'SMTP_USER', 'SMTP_APP_PASSWORD', 'LEAD_RECEIVER_EMAIL'];
 export default async function handler(request, context = {}) {
   const path = new URL(request.url).pathname.replace(/\/$/, '');
   if (!['/api/config', '/api/leads'].includes(path)) return new Response('Not found', { status: 404 });
   const env = Object.fromEntries(envNames.map(name => [name, globalThis.Netlify?.env?.get(name) ?? process.env[name] ?? '']));
+  if(env.LEAD_MODE==='email'&&!env.CONSENT_NOTICE)env.CONSENT_NOTICE=siteConfig.emailConsentNotice;
   env.SEND_LEAD_EMAIL = emailSender(env);
   env.EMAIL_READY = Boolean(env.SEND_LEAD_EMAIL);
   env.EMAIL_SETUP_REQUIRED = [...smtpSetupRequired(env), ...(!env.CONSENT_NOTICE?['CONSENT_NOTICE']:[])];

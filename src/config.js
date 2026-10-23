@@ -5,6 +5,7 @@ export const config = {
   hotline: '[HOTLINE]', email: '[EMAIL]',
   // Keep false until official policies, controller details, and partner data flow are approved.
   legalApproved: false,
+  emailConsentNotice: 'Tôi đồng ý gửi họ tên, số điện thoại, email (nếu nhập), nhu cầu, số tiền và nguồn quảng cáo đến hộp thư quản trị Hỗ Trợ Vay Vốn qua Netlify và Gmail để liên hệ, tư vấn. Không tự động chuyển hồ sơ cho đối tác.',
   partners: [],
   purposes: ['Chi tiêu phát sinh', 'Cân đối tài chính', 'Nhu cầu cá nhân', 'Đầu tư cho tương lai'],
   eligibilityRules: ['Công dân Việt Nam', 'Đang sinh sống tại Việt Nam', 'Có CCCD/giấy tờ tùy thân còn hiệu lực', 'Có tài khoản ngân hàng chính chủ', 'Có nguồn thu nhập phù hợp', 'Có số điện thoại và email liên hệ'],
