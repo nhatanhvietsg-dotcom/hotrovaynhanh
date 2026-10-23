@@ -134,7 +134,7 @@
   const choice=button.dataset.cookie,wasEnabled=analyticsEnabled;save('htvv-cookie',choice);banner.hidden=true;
   if(choice==='all')enableAnalytics();else {analyticsEnabled=false;if(wasEnabled){for(const cookie of document.cookie.split(';')){const name=cookie.split('=')[0].trim();if(/^(_ga|_gid|_gat|_fbp|_fbc)/.test(name)){const hosts=[location.hostname,'.'+location.hostname];document.cookie=name+'=; Max-Age=0; path=/';for(const domain of hosts)document.cookie=name+'=; Max-Age=0; path=/; domain='+domain}}window.location.reload()}}
  }));
- if(location.pathname==='/cam-on'){
+ if(location.pathname.replace(/\/$/,'')==='/cam-on'){
   let receipt;try{receipt=JSON.parse(stored('htvv-receipt',true))}catch{}
   if(receipt&&Date.now()-receipt.at<30*60*1000){
    $('#receipt-title').textContent=receipt.demo?'Bạn đã hoàn tất trải nghiệm':'Đã nhận thông tin của bạn';

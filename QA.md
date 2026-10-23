@@ -29,3 +29,20 @@
 - Không ghi nhận lỗi từ mã website. Chrome có cảnh báo từ extension MetaMask, không xuất phát từ website.
 - `/gioi-thieu` là route mới, giữ nội dung giới thiệu khi bỏ section khỏi luồng homepage để theo bố cục ảnh.
 - Vẫn là chế độ demo riêng tư, chưa có webhook hoặc pháp lý chính thức, chưa có Lighthouse score được xác nhận.
+
+## Nhận lead qua email — 23/10/2026
+
+- Code lên GitHub commit 646120266fef75f6a9493ec3cacfbb84e3219613, Netlify deploy 6adac7bd3814d0cc1c8eef0f ready.
+- 17/17 Node tests đạt: 8 test cũ và 9 test email; server validation, honeypot, origin, oversized payload, rate limit, SMTP configuration, errors, dedup concurrent/retry, HTML escaping, UTF-8/vi-VN/GMT+7, config không lộ credential.
+- Chrome desktop: mở 4 bước, dữ liệu mẫu, đồng ý, double-click submit; nút disabled hiển thị Đang gửi thông tin..., lỗi SMTP giả lập hiển thị thông báo thân thiện và giữ form.
+- Chrome viewport 390x844: quay lại giữ nhu cầu/consent, gửi lại hiển thị loading rồi lỗi thân thiện; chưa gửi email thật trong kiểm tra này.
+- Transport SMTP được mock trong kiểm thử lỗi; không thay mật khẩu production để thử lỗi.
+- Công cụ Netlify báo upsert thành công nhưng API production sau deploy vẫn mode demo. Chưa xác nhận cấu hình SMTP được lưu; chưa gửi/kiểm tra Inbox Gmail thật. Cần hoàn tất cấu hình hosting rồi redeploy và gửi thử.
+- Secret và địa chỉ nhận không được đưa vào source public. Hướng dẫn private local nằm trong artifacts/email-hosting-setup.md (Git ignore).
+
+## Xác minh production sau cấu hình SMTP — 23/10/2026
+
+- Secret SMTP đã khả dụng trên Function production; /api/config trả mode live. Không đọc hay xuất mật khẩu.
+- 19/19 tests đạt, bổ sung kiểm tra diagnostics chỉ chứa tên biến và consent fallback đúng nội dung công bố.
+- Gửi form desktop thật với lead ghi rõ Kiểm Thử Không Liên Hệ, phone mẫu, email qa@example.com và UTM/FBCLID/GCLID mẫu. Backend chấp nhận và frontend chuyển đến /cam-on/; mã chỉ chấp nhận sau SMTP accepted recipient. Chưa xác nhận nội dung Inbox thực tế từ phía người nhận tại thời điểm ghi nhận này.
+- Phát hiện Netlify Pretty URLs thêm slash cuối /cam-on/; sửa nhận diện pathname để thông báo xác nhận và mã ghi nhận hiển thị đúng.
