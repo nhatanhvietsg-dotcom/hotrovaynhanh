@@ -46,3 +46,12 @@
 - 19/19 tests đạt, bổ sung kiểm tra diagnostics chỉ chứa tên biến và consent fallback đúng nội dung công bố.
 - Gửi form desktop thật với lead ghi rõ Kiểm Thử Không Liên Hệ, phone mẫu, email qa@example.com và UTM/FBCLID/GCLID mẫu. Backend chấp nhận và frontend chuyển đến /cam-on/; mã chỉ chấp nhận sau SMTP accepted recipient. Chưa xác nhận nội dung Inbox thực tế từ phía người nhận tại thời điểm ghi nhận này.
 - Phát hiện Netlify Pretty URLs thêm slash cuối /cam-on/; sửa nhận diện pathname để thông báo xác nhận và mã ghi nhận hiển thị đúng.
+
+## Kết quả cuối sau sửa trang cảm ơn — 23/10/2026
+
+- Deploy production 6adae83a21a354ac7239ca01 ready, API mode live.
+- Desktop: SMTP accepted và UI ghi nhận lead-4595700c-493d-4903-9980-7cca61c557c5; số tiền 8.500.000đ, email mẫu, đầy đủ UTM source/medium/campaign/content/term và click ID mẫu được đưa vào request theo luồng frontend. Nội dung formatter được kiểm chứng trong Node tests; chưa đọc trực tiếp Inbox.
+- Mobile Chrome viewport 390x844: chỉnh slider lên 9.000.000đ, nhập phone dạng +84, bỏ trống email tùy chọn, consent rồi gửi. SMTP accepted và UI ghi nhận lead-7eceabf7-df9c-47b8-bd1c-939d23bdfc0c trên /cam-on/. Không có PII trong URL cảm ơn.
+- Đã lưu ảnh email-desktop-success.png và email-mobile-success.png trong artifacts (Git ignore). Khôi phục viewport sau kiểm tra.
+- Backend chỉ trả accepted sau khi SMTP chấp nhận đúng địa chỉ nhận; đây không phải xác minh trực tiếp vị trí thư trong Inbox/Spam. Đã đề nghị quản trị xác nhận thư kiểm thử.
+- Chưa cấu hình đối tác/analytics hoặc xác nhận pháp lý; giữ noindex. Không cần thay đổi thêm code để bật SMTP.
