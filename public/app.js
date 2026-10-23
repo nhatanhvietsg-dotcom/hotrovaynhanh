@@ -20,6 +20,12 @@
  }
  function stored(key,session=false){try{return (session?sessionStorage:localStorage).getItem(key)}catch{return null}}
  function save(key,value,session=false){try{(session?sessionStorage:localStorage).setItem(key,value)}catch{/* The site works with storage disabled. */}}
+ const attributionKeys=['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','gclid'];
+ let attribution={};
+ try {const previous=JSON.parse(stored('htvv-attribution',true)||'{}');for(const key of attributionKeys)if(typeof previous[key]==='string')attribution[key]=previous[key].slice(0,256)}catch{}
+ const landingParams=new URLSearchParams(location.search);
+ for(const key of attributionKeys){const value=landingParams.get(key);if(value)attribution[key]=value.replace(/[\x00-\x1f]/g,'').slice(0,256)}
+ save('htvv-attribution',JSON.stringify(attribution),true);
  function loadScript(src,id){if(document.getElementById(id))return;const script=document.createElement('script');script.id=id;script.async=true;script.src=src;document.head.appendChild(script)}
  function enableAnalytics(){
   analyticsEnabled=true;
@@ -31,7 +37,7 @@
    loadScript('https://www.googletagmanager.com/gtm.js?id='+runtime.GTM_ID,'gtm-loader');
   }else if(/^G-[A-Z0-9]+$/.test(runtime.GA_ID)){
    window.gtag=function(){window.dataLayer.push(arguments)};
-   window.gtag('js',new Date());window.gtag('config',runtime.GA_ID,{send_page_view:true});
+   window.gtag('js',new Date());window.gtag('config',runtime.GA_ID,{send_page_view:true,page_location:location.origin+location.pathname});
    loadScript('https://www.googletagmanager.com/gtag/js?id='+runtime.GA_ID,'ga-loader');
   }
   if(/^\d+$/.test(runtime.META_PIXEL_ID)){
@@ -40,6 +46,7 @@
   }
  }
  function applyRuntime(){
+  if(runtime.mode==='unavailable'){$('.demo-notice').hidden=true;$('#consent-note').textContent='Dịch vụ tiếp nhận đang được cấu hình. Vui lòng quay lại sau.'}
   if(runtime.mode==='live'){
    $('.demo-notice').hidden=true;
    $('#consent-note').textContent=runtime.consentNotice;
@@ -95,18 +102,19 @@
   if(step<4){track('form_step_completed',{step,amount});showStep(step+1);return}
   if(!validate('consent')){form.elements.consent.focus();return}
   await runtimeReady;
+  if(submitting)return;
   if(runtime.mode==='unavailable'){ $('#submit-error').textContent='Chưa thể kết nối dịch vụ. Thông tin vẫn được giữ trong biểu mẫu. Vui lòng thử lại.';return}
-  submitting=true;$('#continue').disabled=true;$('#previous').disabled=true;$('.close-dialog').disabled=true;$('#continue').textContent='Đang xử lý…';$('#submit-error').textContent='';
+  submitting=true;$('#continue').disabled=true;$('#previous').disabled=true;$('.close-dialog').disabled=true;$('#continue').textContent='Đang gửi thông tin...';$('#submit-error').textContent='';
   track('form_step_completed',{step:4,amount});track('form_submit',{step:4,amount,mode:runtime.mode});
   const payload={amount,purpose:Number(form.elements.purpose.value),consent:form.elements.consent.checked,website:form.elements.website.value,startedAt,requestId};
   // Demo deliberately excludes every personally identifying input from the request.
-  if(runtime.mode==='live')Object.assign(payload,{fullName:form.elements.fullName.value.trim(),phone:form.elements.phone.value.replace(/[\s().-]/g,'').replace(/^\+84/,'0'),email:form.elements.email.value.trim()});
+  if(runtime.mode==='live')Object.assign(payload,{fullName:form.elements.fullName.value.trim(),phone:form.elements.phone.value.replace(/[\s().-]/g,'').replace(/^\+84/,'0'),email:form.elements.email.value.trim(),pageUrl:location.origin+location.pathname,attribution});
   try{
-   const response=await fetch('/api/leads',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),signal:AbortSignal.timeout(18000)});
+   const response=await fetch('/api/leads',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload),signal:AbortSignal.timeout(45000)});
    const result=await response.json();if(!response.ok||!result.accepted)throw new Error(result.message||'Không thể gửi thông tin lúc này. Vui lòng thử lại.');
    const receipt={demo:result.demo,id:result.id,at:Date.now()};save('htvv-receipt',JSON.stringify(receipt),true);
    track('lead_success',{amount,mode:runtime.mode});window.location.assign('/cam-on');
-  }catch(error){$('#submit-error').textContent=error.name==='TimeoutError'?'Kết nối đang chậm. Thông tin vẫn được giữ; vui lòng thử lại.':(error.message==='Failed to fetch'?'Mất kết nối. Thông tin vẫn được giữ; vui lòng thử lại.':error.message)}
+  }catch{$('#submit-error').textContent='Chưa thể gửi thông tin. Vui lòng thử lại sau ít phút.'}
   finally{submitting=false;$('#continue').disabled=false;$('#previous').disabled=false;$('.close-dialog').disabled=false;$('#continue').textContent=runtime.mode==='live'?'Gửi thông tin':'Hoàn tất trải nghiệm'}
  });
  $('.menu-toggle').addEventListener('click',event=>{const expanded=event.currentTarget.getAttribute('aria-expanded')!=='true';event.currentTarget.setAttribute('aria-expanded',String(expanded));$('#navigation').classList.toggle('open',expanded)});
@@ -130,7 +138,7 @@
   let receipt;try{receipt=JSON.parse(stored('htvv-receipt',true))}catch{}
   if(receipt&&Date.now()-receipt.at<30*60*1000){
    $('#receipt-title').textContent=receipt.demo?'Bạn đã hoàn tất trải nghiệm':'Đã nhận thông tin của bạn';
-   $('#receipt-message').textContent=receipt.demo?'Bạn vừa đi qua quy trình tìm đề xuất của Hỗ Trợ Vay Vốn. Không có hồ sơ thật được gửi.':'Chúng tôi đang xác định các đề xuất phù hợp với nhu cầu bạn cung cấp.';
+   $('#receipt-message').textContent=receipt.demo?'Bạn vừa đi qua quy trình tìm đề xuất của Hỗ Trợ Vay Vốn. Không có hồ sơ thật được gửi.':'Thông tin đã được ghi nhận. Chúng tôi sẽ hướng dẫn bạn ở bước tiếp theo.';
    $('#receipt-detail').hidden=false;$('#receipt-detail').textContent=receipt.demo?'Bản trải nghiệm chưa kết nối đối tác. Chúng tôi không lưu hoặc chuyển họ tên, số điện thoại và email bạn đã nhập.':'Mã ghi nhận: '+receipt.id+'. Việc gửi thông tin không đồng nghĩa với việc khoản vay được phê duyệt.';
    runtimeReady.then(()=>{if(!receipt.demo)renderPartners(runtime.partners)})
   }else{$('#receipt-title').textContent='Bắt đầu từ nhu cầu của bạn';$('#receipt-message').textContent='Bạn chưa có yêu cầu được ghi nhận trong phiên này. Về trang chủ để bắt đầu.'}

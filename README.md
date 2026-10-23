@@ -1,77 +1,48 @@
 # Hỗ Trợ Vay Vốn
 
-Landing page tiếng Việt, nhận diện navy–teal, HTML render sẵn và JavaScript thuần. Không có runtime dependency; một Cloudflare Worker phục vụ trang, asset và API. Font Be Vietnam Pro được lưu tại dự án; ảnh stock chuyển WebP.
+Landing page HTML/CSS/JavaScript thuần, render sẵn. Production: https://hotrovaynhanh.com, Netlify project `hotrovay` (`9782b2c7-483f-4df1-8b87-1dc204b15677`). GitHub: nhatanhvietsg-dotcom/hotrovaynhanh, main. Domain và HTTPS đã hoạt động.
 
-## Bản cập nhật theo thiết kế
+## Chạy và build
 
-Layout đã được dựng lại theo ảnh tham chiếu do người dùng cung cấp. Xem `DESIGN.md` cho cấu trúc mới, danh sách ảnh ImageGen và bộ prompt. Trang giới thiệu nằm tại `/gioi-thieu`. Số tiền mặc định là 8.500.000đ.
+Node.js >=22, `pnpm install --frozen-lockfile`. `npm run build:netlify` tạo `netlify-dist/` và `.netlify-runtime/`; Netlify CDN phục vụ trang tĩnh, Functions phục vụ API. `npm run build` giữ bản Cloudflare Worker cũ cho preview; `npm run dev` chạy tại http://127.0.0.1:4173. `npm test` chạy sau cả hai build.
 
-## Cấu trúc
+Không sửa output. `.netlify/`, `.netlify-runtime/`, node_modules, output, artifacts và .env* được ignore; `.env.example` chỉ có ví dụ không chứa secret. Xem DESIGN.md cho bố cục/ảnh và QA.md cho kết quả kiểm tra.
 
-- `src/config.js`: brand, hạn mức, bước tiền, mục đích, điều kiện, pháp nhân và đối tác.
-- `src/components.js`: các section và form dùng chung.
-- `src/pages.js`: trang chủ, trang cảm ơn, trang pháp lý và SEO.
-- `public/styles.css`, `public/app.js`: responsive, modal, validation, tracking và consent cookie.
-- `worker/index.js`: `/api/config`, `/api/leads`, kiểm tra dữ liệu server và adapter webhook.
-- `scripts/build.mjs`: kết xuất HTML và đóng gói asset vào một Worker ESM.
-- `tests/api.test.mjs`: kiểm thử route, validation, chống spam cơ bản và webhook.
+## Luồng nhận lead qua email
 
-## Chạy
+Dùng lại `POST /api/leads`, không thêm form hoặc route đăng ký. Tất cả CTA mở cùng form 4 bước: số tiền, họ tên/phone/email tùy chọn, nhu cầu, consent. Không có năm sinh, nghề nghiệp, thu nhập hoặc khu vực; không tạo các field này trong email.
 
-Node.js 22 trở lên. Không cần cài package.
+Khách đồng ý → server validate → Gmail SMTP chấp nhận email → success → `/cam-on`. Không có phê duyệt khoản vay. Nếu SMTP thất bại: giữ form và hiển thị “Chưa thể gửi thông tin. Vui lòng thử lại sau ít phút.” Button có trạng thái “Đang gửi thông tin...”, disable trong khi gửi và không cho double-submit.
 
-```sh
-npm run build
-npm test
-npm run validate
-npm run dev
-```
+- `netlify/lib/lead-email.mjs`: Nodemailer chỉ ở backend, email HTML + plain text, escape HTML, số tiền vi-VN và thời gian GMT+7. Subject cố định `[Hỗ Trợ Vay Vốn] Có khách hàng đăng ký mới` tránh đưa PII vào header subject. Highlight họ tên, phone và số tiền.
+- `netlify/functions/api.mjs`: đọc env Functions, tạo SMTP sender, lấy IP tin cậy từ context. Rate limit Netlify edge 8 requests/60s/IP cho config và leads.
+- `worker/index.js`: validate server, same-origin, honeypot, thời gian điền tối thiểu, payload 4 KB, 6 submission/60s/IP/instance. Chỉ trả success sau SMTP accepted. Chế độ email thiếu cấu hình trả unavailable/503, không giả lập nhận hồ sơ.
+- `public/app.js`: giữ UTM source/medium/campaign/content/term, FBCLID, GCLID trong sessionStorage; gửi sau consent. pageUrl bỏ query/hash. Tên/phone/email không lưu sessionStorage, không gửi analytics, không đưa vào URL cảm ơn. Không cấu hình GTM đọc input hay tự thu PII.
+- `src/components.js`, `src/pages.js`: consent ghi đúng hộp thư nhận, giải thích nguồn lead và trang cảm ơn.
+- `tests/email.test.mjs`: SMTP config, retry/dedup, lỗi giao thư, validation/spam, HTML escaping, UTF-8/format, không lộ credential.
 
-Mở http://127.0.0.1:4173. Sau thay đổi cần build và khởi động lại preview. `dist/` là output, không sửa trực tiếp. Hosting manifest nằm tại `.openai/hosting.json`.
+## Biến môi trường Netlify
 
-## Tình trạng bàn giao
+Context production, scope Functions. Đổi biến phải redeploy:
 
-Bản triển khai là bản trải nghiệm riêng tư, chưa phải hệ thống tiếp nhận hồ sơ công khai trên hotrovaynhanh.com. Form 4 bước hoạt động đầy đủ nhưng **không gửi họ tên, điện thoại hoặc email trong chế độ demo**. Thông tin chỉ ở bộ nhớ trang; không lưu PII vào localStorage/sessionStorage. Trang kết quả ghi rõ đây là trải nghiệm, không có hồ sơ thật được gửi, không có đề xuất hoặc kết quả phê duyệt giả.
+| Biến | Giá trị |
+| --- | --- |
+| LEAD_MODE | email |
+| SMTP_HOST | smtp.gmail.com |
+| SMTP_PORT | 465 |
+| SMTP_SECURE | true |
+| SMTP_USER | Cấu hình trực tiếp trên hosting |
+| SMTP_APP_PASSWORD | Secret do quản trị cấu hình trực tiếp ở hosting |
+| LEAD_RECEIVER_EMAIL | Cấu hình trực tiếp trên hosting |
+| CONSENT_VERSION | email-2026-10-23-v1 |
+| CONSENT_NOTICE | Mô tả dữ liệu, người nhận, mục đích liên hệ và hạ tầng Netlify/Gmail |
 
-Robots và HTTP X-Robots-Tag hiện chặn lập chỉ mục trong khi `legalApproved=false`. Canonical, OG/X, WebSite, FAQ schema và sitemap đã chuẩn bị cho domain thật. FAQ schema không bảo đảm Google hiển thị rich result.
+Không đặt password vào frontend, Git, netlify.toml, output hoặc API response. `/api/config` chỉ trả trạng thái, ID analytics công khai và consent notice. Log chỉ có event, requestId và mã lỗi allowlist; không log PII/password/SMTP response. Họ tên/số điện thoại chỉ ở email đã được khách đồng ý, không có database hồ sơ.
 
-Các trang pháp lý là khung dự thảo có nhãn rõ ràng; không tự bịa pháp nhân, giấy phép, địa chỉ hoặc đầu mối hỗ trợ. Các placeholder chỉ nằm trong config. Chưa gắn DNS/custom domain. Chưa có ID analytics thật hoặc đối tác thật.
+`LEAD_MODE=demo` không nhận PII. Adapter webhook cũ `LEAD_MODE=live` vẫn yêu cầu `legalApproved=true`, CONSENT_NOTICE và LEAD_WEBHOOK_URL HTTPS. SMTP email mode là luồng do chủ website yêu cầu riêng, không gửi hồ sơ cho đối tác. Không tự đổi legalApproved hoặc bỏ noindex: đơn vị vận hành còn cần hoàn thiện pháp nhân, thời hạn lưu trữ, chính sách và đối tác.
 
-## Bật tiếp nhận hồ sơ thật
+## Kiểm thử
 
-1. Hoàn thiện và phê duyệt pháp nhân, đầu mối hỗ trợ, chính sách riêng tư, điều khoản, thời gian lưu trữ, quy trình thực hiện quyền, quy trình chuyển dữ liệu và đối tác; cập nhật nội dung trong `src/pages.js` và thông tin ở config/footer.
-2. Hoàn thiện tiêu chí matching có thật. Mục đích sử dụng là câu hỏi duy nhất ở bước 3 hiện tại, chưa có scoring hay đánh giá khả năng tín dụng. `partners` rỗng; chỉ thêm đối tác đã xác nhận. Nếu trả gợi ý theo hồ sơ, cần triển khai matching server trước khi công bố.
-3. Triển khai hệ thống nhận hồ sơ do đơn vị vận hành quản lý, có lưu trữ an toàn và idempotency. Thiết lập biến môi trường server theo `.env.example`: `LEAD_MODE=live`, `LEAD_WEBHOOK_URL` (HTTPS), `LEAD_WEBHOOK_TOKEN`, `CONSENT_VERSION`, `CONSENT_NOTICE` mô tả chính xác bên nhận và quá trình xử lý dữ liệu.
-4. Khi các chính sách đã có hiệu lực, đổi `legalApproved=true`. Live mode yêu cầu cả cờ này và consent notice; thiếu webhook thì API trả lỗi 503, không báo thành công.
-5. Khi công khai trên domain thật, bỏ Disallow trong robots.txt, kiểm tra lại canonical/OG/sitemap, noindex của legal pages và cấu hình DNS/SSL.
+`npm run build && npm run build:netlify && npm test`. Mở trang với `?utm_source=qa&utm_campaign=email-test`; nhập dữ liệu ghi rõ “Kiểm Thử Không Liên Hệ”, hoàn tất form và kiểm tra `/cam-on`. Gmail phải nhận đúng số tiền 8.500.000đ, phone, tiếng Việt và nguồn QA. Kiểm tra Inbox/Spam. Kiểm tra lỗi bằng transport mock, không đổi password production để thử lỗi.
 
-### Hợp đồng webhook
-
-POST JSON, Authorization Bearer nếu cấu hình token; `Idempotency-Key` là request UUID, được giữ nguyên khi người dùng thử lại. Payload gồm `requestId, fullName, phone, email, amount, purpose, consent, consentVersion, consentNotice, consentedAt`. Phải kiểm tra, lưu và deduplicate theo requestId tại bên nhận. Chỉ sau khi lưu thành công trả HTTP 2xx với `{ "accepted": true, "id": "lead_123" }`. ID chỉ chứa a-z, A-Z, 0-9, gạch dưới hoặc gạch ngang, tối đa 100 ký tự. Trang cảm ơn chỉ xuất hiện sau xác nhận này. Timeout/lỗi giữ dữ liệu ở form để thử lại; không tự động báo đã duyệt.
-
-Không có database hồ sơ trong Worker hiện tại. Rate limit 6 lần/phút/IP trong bộ nhớ **mỗi isolate**, không phải giới hạn phân tán; cần WAF/Turnstile hoặc rate limiter phân tán ở hạ tầng thật trước khi chạy quảng cáo. Honeypot, thời gian điền tối thiểu, JSON size limit, same-origin và backend validation đã có. Không log PII.
-
-## Analytics
-
-`GTM_ID`, `GA_ID`, `META_PIXEL_ID` là ID công khai, lấy qua `/api/config`; secret webhook chỉ tồn tại server. Chưa cấu hình thì không tải script third-party. Chỉ tải analytics sau opt-in. Nếu có GTM, dùng GTM để quản lý GA thay vì tải GA trực tiếp song song. Không cấu hình trình quản lý thẻ đọc input form, gửi PII hay tự thu thập dữ liệu người dùng.
-
-Sự kiện: hero_cta_click, amount_changed, form_started, form_step_completed, form_submit, lead_success, partner_offer_view, partner_redirect, faq_open, final_cta_click. Chỉ allowlist event và số tiền, chỉ số step/FAQ/đối tác, mode; không gửi chuỗi nhập tự do. `lead_success` có mode demo/live để loại thử nghiệm khỏi báo cáo. Đổi cookie về chỉ cần thiết sẽ dừng tracking và tải lại trang.
-
-## Hình ảnh
-
-Ảnh Pexels (stock minh họa, không phải khách hàng hoặc chứng thực):
-
-- Antonius Ferret, [5253850](https://www.pexels.com/photo/woman-holding-her-phone-5253850/): portrait/work.
-- Pavel Danilyuk, [7190922](https://www.pexels.com/photo/a-woman-using-a-smartphone-7190922/): hero/about.
-- Yan Krukau, [6209632](https://www.pexels.com/photo/a-woman-using-her-phone-at-home-6209632/): home.
-- Zen Chung, [5538624](https://www.pexels.com/photo/young-asian-woman-surfing-smartphone-while-working-on-project-at-home-5538624/): study.
-
-Font Be Vietnam Pro: Google Fonts, SIL Open Font License. Không có asset/nội dung nguyên văn từ website tham khảo. SVG icon và logo được dựng riêng.
-
-## Kiểm tra
-
-Xem `QA.md` để biết kiểm tra đã thực hiện và giới hạn xác minh. Script browser-qa.cjs là kịch bản tự động tùy chọn cho môi trường có Playwright/Chromium, chưa chạy hoàn tất tại máy bàn giao. Không có Lighthouse score được xác nhận.
-
-## Netlify
-
-Chạy `npm run build:netlify`; `netlify.toml` cấu hình build, publish `netlify-dist` và Functions. Trang/ảnh được phục vụ qua CDN; `/api/config` và `/api/leads` dùng lại validation và webhook adapter hiện có. Biến môi trường đặt trong Netlify với scope Functions, không đưa secret vào repository. Chế độ demo và chặn lập chỉ mục vẫn giữ nguyên. Cấu hình Sites cũ được giữ để có thể tiếp tục dùng bản riêng tư.
+Dedup requestId + digest trong cùng instance 30 phút, không giữ PII trong cache. Không bảo đảm exactly-once giữa cold starts; Message-ID ổn định để đối chiếu. SMTP timeout sau khi server đã nhận có thể khiến retry tạo email trùng. Nếu cần bảo đảm cao hơn, thêm kho idempotency phân tán/queue; Gmail có quota riêng. Rate limit không thay thế CAPTCHA khi bị bot phân tán. SMTP accepted chứng minh Gmail nhận thư để xử lý, không chứng minh inbox của người nhận đã hiển thị; kiểm tra hộp thư riêng.
