@@ -43,7 +43,7 @@ async function deliverEmail(data, env, url) {
 export default {
  async fetch(request,env={}){
   const url=new URL(request.url);const path=url.pathname.replace(/\/$/,'')||'/';
-  if(path==='/api/config'&&request.method==='GET')return json({mode:mode(env),GTM_ID:env.GTM_ID||'',GA_ID:env.GA_ID||'',META_PIXEL_ID:env.META_PIXEL_ID||'',consentNotice:mode(env)==='live'?env.CONSENT_NOTICE:'',partners:mode(env)==='live'?CONFIG.partners:[]});
+  if(path==='/api/config'&&request.method==='GET')return json({mode:mode(env),...(mode(env)==='unavailable'?{setupRequired:(env.EMAIL_SETUP_REQUIRED||[]).filter(k=>['SMTP_HOST','SMTP_PORT','SMTP_SECURE','SMTP_USER','SMTP_APP_PASSWORD','LEAD_RECEIVER_EMAIL','CONSENT_NOTICE'].includes(k))}:{}),GTM_ID:env.GTM_ID||'',GA_ID:env.GA_ID||'',META_PIXEL_ID:env.META_PIXEL_ID||'',consentNotice:mode(env)==='live'?env.CONSENT_NOTICE:'',partners:mode(env)==='live'?CONFIG.partners:[]});
   if(path==='/api/leads'){
    if(request.method!=='POST')return json({message:'Phương thức không được hỗ trợ.'},405);
    if(request.headers.get('origin')!==url.origin||request.headers.get('sec-fetch-site')==='cross-site')return json({message:'Yêu cầu không hợp lệ.'},403);

@@ -1,9 +1,20 @@
 import nodemailer from 'nodemailer';
 const emailPattern = /^[^\s@<>\r\n]+@[^\s@<>\r\n]+\.[^\s@<>\r\n]+$/;
 const escapeHtml = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+export function smtpSetupRequired(env) {
+ const missing=[];
+ if(!env.SMTP_HOST?.trim())missing.push('SMTP_HOST');
+ const port=Number(env.SMTP_PORT||465);
+ if(![465,587].includes(port))missing.push('SMTP_PORT');
+ if(port===465&&env.SMTP_SECURE==='false')missing.push('SMTP_SECURE');
+ if(!emailPattern.test(env.SMTP_USER||''))missing.push('SMTP_USER');
+ if(!emailPattern.test(env.LEAD_RECEIVER_EMAIL||''))missing.push('LEAD_RECEIVER_EMAIL');
+ if(!env.SMTP_APP_PASSWORD?.trim())missing.push('SMTP_APP_PASSWORD');
+ return missing;
+}
 export function smtpSettings(env) {
- const port = Number(env.SMTP_PORT || 465), secure = env.SMTP_SECURE !== 'false';
- if (!env.SMTP_HOST || ![465,587].includes(port) || (port===465&&!secure) || !emailPattern.test(env.SMTP_USER || '') || !emailPattern.test(env.LEAD_RECEIVER_EMAIL || '') || !env.SMTP_APP_PASSWORD) return null;
+ if(smtpSetupRequired(env).length)return null;
+ const port=Number(env.SMTP_PORT||465),secure=env.SMTP_SECURE!=='false';
  return {host:env.SMTP_HOST,port,secure,requireTLS:true,auth:{user:env.SMTP_USER,pass:env.SMTP_APP_PASSWORD},connectionTimeout:8000,greetingTimeout:5000,socketTimeout:15000,dnsTimeout:5000,logger:false,debug:false};
 }
 export function leadMessage(lead, env) {

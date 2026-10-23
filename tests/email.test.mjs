@@ -1,7 +1,7 @@
 import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
-import {emailSender, leadMessage, smtpSettings} from '../netlify/lib/lead-email.mjs';
+import {emailSender, leadMessage, smtpSettings, smtpSetupRequired} from '../netlify/lib/lead-email.mjs';
 import {config} from '../src/config.js';
 const source='const CONFIG='+JSON.stringify(config)+';const ASSETS={};\n'+await readFile(new URL('../worker/index.js',import.meta.url),'utf8');
 const worker=(await import('data:text/javascript;base64,'+Buffer.from(source).toString('base64'))).default;
@@ -30,3 +30,5 @@ test('SMTP accepted recipient required; safe log omits credentials and lead cont
  try{let message;await emailSender(smtp,settings=>{assert.equal(settings.logger,false);return {sendMail:async m=>{message=m;return {accepted:[smtp.LEAD_RECEIVER_EMAIL]}},close(){}}})(lead);assert.ok(message.html&&message.text);await assert.rejects(emailSender(smtp,()=>({sendMail:async()=>{throw Object.assign(new Error(smtp.SMTP_APP_PASSWORD),{code:'EAUTH'})}}))(lead));assert.doesNotMatch(logs.join('\n'),/dummy-test-only|0900000000|Khách Kiểm Thử/);assert.match(logs.join('\n'),/EAUTH/)}finally{console.info=oldInfo;console.error=oldError}
 });
 test('public assets and config response never contain SMTP environment values',async()=>{const r=await worker.fetch(new Request('https://test.local/api/config'),{...env,...smtp});const raw=await r.text();assert.doesNotMatch(raw,/SMTP_|dummy-test-only/);for(const file of ['../netlify-dist/app.js','../netlify-dist/index.html'])assert.doesNotMatch(await readFile(new URL(file,import.meta.url),'utf8'),/SMTP_APP_PASSWORD|dummy-test-only/)});
+
+test('SMTP diagnostics expose variable names only, never values',async()=>{assert.deepEqual(smtpSetupRequired({...smtp,SMTP_USER:'invalid',SMTP_APP_PASSWORD:''}),['SMTP_USER','SMTP_APP_PASSWORD']);const r=await worker.fetch(new Request('https://test.local/api/config'),{LEAD_MODE:'email',EMAIL_SETUP_REQUIRED:['SMTP_USER','SMTP_APP_PASSWORD','not-allowlisted'],...smtp});const body=await r.json();assert.deepEqual(body.setupRequired,['SMTP_USER','SMTP_APP_PASSWORD']);assert.ok(!JSON.stringify(body).includes(smtp.SMTP_APP_PASSWORD))});
