@@ -7,7 +7,7 @@ export const security = {
  'permissions-policy':'camera=(), microphone=(), geolocation=()',
  'content-security-policy':"default-src 'self'; script-src 'self' https://www.googletagmanager.com https://www.google-analytics.com https://connect.facebook.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.facebook.com https://www.google-analytics.com https://www.googletagmanager.com; font-src 'self'; connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com https://www.facebook.com; frame-src https://www.googletagmanager.com; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'"
 };
-function json(data,status=200){return new Response(JSON.stringify(data),{status,headers:{...security,'content-type':'application/json; charset=utf-8','cache-control':'no-store'}})}
+function json(data,status=200){return new Response(JSON.stringify(data),{status,headers:{...security,'content-type':'application/json; charset=utf-8','cache-control':'no-store','x-robots-tag':'noindex, nofollow'}})}
 function mode(env){if(env.LEAD_MODE==='email')return env.EMAIL_READY&&env.CONSENT_NOTICE?'live':'unavailable';return env.LEAD_MODE==='live'&&CONFIG.legalApproved&&env.CONSENT_NOTICE?'live':'demo'}
 function rateLimited(key){const now=Date.now();if(rateWindows.size>5000)for(const [k,v] of rateWindows)if(v.reset<now)rateWindows.delete(k);const v=rateWindows.get(key);if(!v||v.reset<now){rateWindows.set(key,{count:1,reset:now+60000});return false}v.count++;return v.count>6}
 async function readBody(request){if(Number(request.headers.get('content-length'))>4096)throw new Error('large');const reader=request.body?.getReader();if(!reader)throw new Error('empty');let size=0,parts=[];while(true){const r=await reader.read();if(r.done)break;size+=r.value.byteLength;if(size>4096){await reader.cancel();throw new Error('large')}parts.push(r.value)}const bytes=new Uint8Array(size);let offset=0;for(const p of parts){bytes.set(p,offset);offset+=p.length}return JSON.parse(new TextDecoder().decode(bytes))}
@@ -69,6 +69,6 @@ export default {
   if(!['GET','HEAD'].includes(request.method))return new Response('Method not allowed',{status:405,headers:security});
   const asset=ASSETS[path]||ASSETS['/404'];const status=ASSETS[path]?200:404;
   const bytes=Uint8Array.from(atob(asset.body),c=>c.charCodeAt(0));
-  return new Response(request.method==='HEAD'?null:bytes,{status,headers:{...security,'content-type':asset.type,'cache-control':path.startsWith('/assets/')?'public, max-age=86400':'no-cache',...(asset.type.startsWith('text/html')&&!CONFIG.legalApproved?{'x-robots-tag':'noindex, nofollow'}:{})}});
+  return new Response(request.method==='HEAD'?null:bytes,{status,headers:{...security,'content-type':asset.type,'cache-control':path.startsWith('/assets/')?'public, max-age=86400':'no-cache',...(asset.type.startsWith('text/html')&&(!CONFIG.policiesPublished||path==='/cam-on'||status===404)?{'x-robots-tag':'noindex, nofollow'}:{})}});
  }
 };

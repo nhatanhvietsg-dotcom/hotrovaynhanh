@@ -1,4 +1,5 @@
 User-agent: *
-Disallow: /
-# Private draft: remove Disallow only after legal and business configuration approval.
+Allow: /
+Disallow: /api/
+Disallow: /cam-on
 Sitemap: https://hotrovaynhanh.com/sitemap.xml

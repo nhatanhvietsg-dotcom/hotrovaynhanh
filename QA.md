@@ -55,3 +55,10 @@
 - Đã lưu ảnh email-desktop-success.png và email-mobile-success.png trong artifacts (Git ignore). Khôi phục viewport sau kiểm tra.
 - Backend chỉ trả accepted sau khi SMTP chấp nhận đúng địa chỉ nhận; đây không phải xác minh trực tiếp vị trí thư trong Inbox/Spam. Đã đề nghị quản trị xác nhận thư kiểm thử.
 - Chưa cấu hình đối tác/analytics hoặc xác nhận pháp lý; giữ noindex. Không cần thay đổi thêm code để bật SMTP.
+
+## Thông tin liên hệ và chính sách công khai — 03/11/2026
+
+- Chủ website cung cấp và cho công khai địa chỉ, hotline, email; xác nhận đầu mối Bộ phận quản trị Hỗ Trợ Vay Vốn và không đặt thời hạn lưu cố định.
+- Bỏ thông tin chưa xác nhận/nhãn dự thảo trên các trang chính sách; thêm ngày hiệu lực 03/11/2026, nội dung đúng luồng Gmail thực tế và kênh yêu cầu quyền riêng tư. Không tuyên bố có đối tác tích hợp hoặc phê duyệt pháp lý bên thứ ba.
+- Build Worker và Netlify thành công. 21/21 tests đạt, gồm kiểm tra liên hệ đúng ở mọi trang, không còn placeholder/draft/noindex trên policy, robots/sitemap mở trang công khai, API và cảm ơn vẫn noindex.
+- Cổng webhook/đối tác cũ vẫn bị khóa bởi legalApproved=false; luồng SMTP không đổi.

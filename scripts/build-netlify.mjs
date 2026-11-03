@@ -16,7 +16,8 @@ for (const route of routes) {
 }
 await writeFile(resolve(output, '404.html'), renderPage('/404'));
 const headers = ['/*', ...Object.entries(security).map(([key, value]) => `  ${key}: ${value}`)];
-if (!config.legalApproved) headers.push('  X-Robots-Tag: noindex, nofollow');
+if (!config.policiesPublished) headers.push('  X-Robots-Tag: noindex, nofollow');
+headers.push('/api/*','  X-Robots-Tag: noindex, nofollow','/cam-on','  X-Robots-Tag: noindex, nofollow','/cam-on/*','  X-Robots-Tag: noindex, nofollow','/404.html','  X-Robots-Tag: noindex, nofollow');
 await writeFile(resolve(output, '_headers'), headers.join('\n') + '\n');
 const runtime = resolve(root, '.netlify-runtime');
 await mkdir(runtime, { recursive: true });

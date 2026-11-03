@@ -39,7 +39,7 @@ Context production, scope Functions. Đổi biến phải redeploy:
 
 Không đặt password vào frontend, Git, netlify.toml, output hoặc API response. `/api/config` chỉ trả trạng thái, ID analytics công khai và consent notice. Log chỉ có event, requestId và mã lỗi allowlist; không log PII/password/SMTP response. Họ tên/số điện thoại chỉ ở email đã được khách đồng ý, không có database hồ sơ.
 
-`LEAD_MODE=demo` không nhận PII. Adapter webhook cũ `LEAD_MODE=live` vẫn yêu cầu `legalApproved=true`, CONSENT_NOTICE và LEAD_WEBHOOK_URL HTTPS. SMTP email mode là luồng do chủ website yêu cầu riêng, không gửi hồ sơ cho đối tác. Không tự đổi legalApproved hoặc bỏ noindex: đơn vị vận hành còn cần hoàn thiện pháp nhân, thời hạn lưu trữ, chính sách và đối tác.
+`LEAD_MODE=demo` không nhận PII. Adapter webhook cũ `LEAD_MODE=live` vẫn yêu cầu `legalApproved=true`, CONSENT_NOTICE và LEAD_WEBHOOK_URL HTTPS. SMTP email mode là luồng do chủ website yêu cầu riêng, không gửi hồ sơ cho đối tác. Cờ legalApproved chỉ bảo vệ adapter webhook/đối tác cũ. Chính sách website được công bố riêng bằng policiesPublished, theo yêu cầu chủ website ngày 03/11/2026; không có nghĩa đã bật chuyển hồ sơ đối tác hoặc chứng nhận pháp lý bởi bên thứ ba.
 
 ## Kiểm thử
 
@@ -48,3 +48,9 @@ Không đặt password vào frontend, Git, netlify.toml, output hoặc API respo
 Dedup requestId + digest trong cùng instance 30 phút, không giữ PII trong cache. Không bảo đảm exactly-once giữa cold starts; Message-ID ổn định để đối chiếu. SMTP timeout sau khi server đã nhận có thể khiến retry tạo email trùng. Nếu cần bảo đảm cao hơn, thêm kho idempotency phân tán/queue; Gmail có quota riêng. Rate limit không thay thế CAPTCHA khi bị bot phân tán. SMTP accepted chứng minh Gmail nhận thư để xử lý, không chứng minh inbox của người nhận đã hiển thị; kiểm tra hộp thư riêng.
 
 `CONSENT_NOTICE` là override tùy chọn cho email mode; nếu chưa đặt thì dùng nội dung đồng ý đã công bố trong src/config.js. Secret SMTP vẫn bắt buộc. Khi chưa sẵn sàng, /api/config chỉ trả tên biến cấu hình thiếu qua setupRequired, không trả giá trị. Trang cảm ơn hỗ trợ cả /cam-on và /cam-on/ do Netlify Pretty URLs.
+
+## Công bố thông tin và chính sách — 03/11/2026
+
+Chủ website xác nhận công khai địa chỉ 19 Nguyễn Hữu Cảnh, Phường Thạnh Mỹ Tây, Thành phố Hồ Chí Minh, hotline 0938443655 và email thienhuongnguyen1010@gmail.com. Đầu mối vận hành được ghi theo lựa chọn của chủ website là Bộ phận quản trị Hỗ Trợ Vay Vốn; không tự tạo tên công ty hoặc mã số thuế. Không ấn định thời hạn lưu email theo số ngày; chính sách nêu nơi lưu, cách yêu cầu xóa/rút đồng ý và việc rà soát nhu cầu lưu giữ. Không thêm lịch xóa tự động.
+
+Nội dung tại src/policies.js gồm Điều khoản sử dụng, Chính sách bảo mật, Cookie, Thông tin quan trọng, Liên hệ/khiếu nại; công bố ngày hiệu lực và phiên bản, không còn nhãn dự thảo. Footer và trang liên hệ có liên kết tel/mailto. policiesPublished mở robots/index cho trang công khai; API, trang cảm ơn và lỗi vẫn noindex. legalApproved=false giữ nguyên cổng webhook cũ, không tác động email mode.

@@ -1,10 +1,14 @@
 export const config = {
   brandName: 'Hỗ Trợ Vay Vốn', domain: 'hotrovaynhanh.com',
   minAmount: 500000, maxAmount: 30000000, amountStep: 500000, defaultAmount: 8500000,
-  companyName: '[TÊN PHÁP NHÂN]', taxCode: '[MÃ SỐ THUẾ]', address: '[ĐỊA CHỈ]',
-  hotline: '0938443655', email: '[EMAIL]',
+  companyName: '[TÊN PHÁP NHÂN]', taxCode: '[MÃ SỐ THUẾ]', address: '19 Nguyễn Hữu Cảnh, Phường Thạnh Mỹ Tây, Thành phố Hồ Chí Minh',
+  hotline: '0938443655', email: 'thienhuongnguyen1010@gmail.com',
   // Keep false until official policies, controller details, and partner data flow are approved.
-  legalApproved: false,
+  legalApproved: false, // Legacy partner/webhook approval remains independent of publication.
+  policiesPublished: true,
+  operatorName: 'Bộ phận quản trị Hỗ Trợ Vay Vốn',
+  policyEffectiveDate: '03/11/2026',
+  policyVersion: '2026-11-03',
   emailConsentNotice: 'Tôi đồng ý gửi họ tên, số điện thoại, email (nếu nhập), nhu cầu, số tiền và nguồn quảng cáo đến hộp thư quản trị Hỗ Trợ Vay Vốn qua Netlify và Gmail để liên hệ, tư vấn. Không tự động chuyển hồ sơ cho đối tác.',
   partners: [],
   purposes: ['Chi tiêu phát sinh', 'Cân đối tài chính', 'Nhu cầu cá nhân', 'Đầu tư cho tương lai'],
