@@ -1,27 +1,29 @@
 export const config = {
   brandName: 'Hỗ Trợ Vay Vốn', domain: 'hotrovaynhanh.com',
   minAmount: 500000, maxAmount: 30000000, amountStep: 500000, defaultAmount: 8500000,
-  companyName: '[TÊN PHÁP NHÂN]', taxCode: '[MÃ SỐ THUẾ]', address: '19 Nguyễn Hữu Cảnh, Phường Thạnh Mỹ Tây, Thành phố Hồ Chí Minh',
+  companyName: '', taxCode: '', address: '19 Nguyễn Hữu Cảnh, Phường Thạnh Mỹ Tây, Thành phố Hồ Chí Minh',
   hotline: '0938443655', email: 'thienhuongnguyen1010@gmail.com',
   // Keep false until official policies, controller details, and partner data flow are approved.
   legalApproved: false, // Legacy partner/webhook approval remains independent of publication.
   policiesPublished: true,
-  operatorName: 'Bộ phận quản trị Hỗ Trợ Vay Vốn',
-  policyEffectiveDate: '03/11/2026',
-  policyVersion: '2026-11-03',
+  operatorName: 'Trần Thị Yến Nhi',
+  operatorType: 'Cá nhân vận hành',
+  policyEffectiveDate: '07/11/2026',
+  policyVersion: '2026-11-07',
   emailConsentNotice: 'Tôi đồng ý gửi họ tên, số điện thoại, email (nếu nhập), nhu cầu, số tiền và nguồn quảng cáo đến hộp thư quản trị Hỗ Trợ Vay Vốn qua Netlify và Gmail để liên hệ, tư vấn. Không tự động chuyển hồ sơ cho đối tác.',
   partners: [],
-  purposes: ['Chi tiêu phát sinh', 'Cân đối tài chính', 'Nhu cầu cá nhân', 'Đầu tư cho tương lai'],
-  eligibilityRules: ['Công dân Việt Nam', 'Đang sinh sống tại Việt Nam', 'Có CCCD/giấy tờ tùy thân còn hiệu lực', 'Có tài khoản ngân hàng chính chủ', 'Có nguồn thu nhập phù hợp', 'Có số điện thoại và email liên hệ'],
-  title: 'Hỗ Trợ Vay Vốn | Tìm Giải Pháp Tài Chính Phù Hợp',
-  description: 'Hỗ Trợ Vay Vốn giúp bạn tham khảo và kết nối với các đề xuất tài chính phù hợp. Quy trình trực tuyến đơn giản, minh bạch và thuận tiện.'
+  purposes: ['Chi tiêu phát sinh', 'Cân đối tài chính', 'Nhu cầu cá nhân', 'Nhu cầu khác'],
+  eligibilityRules: ['Đọc kỳ hạn trả nợ', 'Kiểm tra APR và cách tính lãi', 'Xem toàn bộ khoản phí', 'Biết tổng tiền phải trả', 'Xác minh bên cho vay', 'Cân nhắc khả năng chi trả'],
+  title: 'Gửi nhu cầu tìm hiểu khoản vay cá nhân | Hỗ Trợ Vay Vốn',
+  description: 'Hỗ Trợ Vay Vốn tiếp nhận nhu cầu để bộ phận hỗ trợ liên hệ tư vấn. Website không trực tiếp cho vay, xét duyệt hoặc giải ngân.'
+
 };
 export const faqs = [
- ['Hỗ Trợ Vay Vốn là gì?', 'hotrovaynhanh.com là nền tảng cung cấp thông tin và hỗ trợ kết nối người dùng với các đối tác cung cấp giải pháp tài chính. Chúng tôi không trực tiếp cấp tín dụng hoặc giải ngân.'],
- ['Sử dụng dịch vụ có mất phí không?', 'Người dùng không phải trả phí cho hotrovaynhanh.com khi sử dụng dịch vụ tìm kiếm đề xuất. Lãi suất, phí và các chi phí khác của khoản vay (nếu có) do từng đối tác công bố.'],
- ['Tôi có thể đăng ký bao nhiêu tiền?', 'Hạn mức phụ thuộc vào sản phẩm, hồ sơ và chính sách của từng đối tác. Số tiền bạn chọn trên website chỉ thể hiện nhu cầu tham khảo, không phải hạn mức được phê duyệt.'],
- ['Bao lâu tôi nhận được kết quả?', 'Thời gian xử lý phụ thuộc vào thông tin hồ sơ và quy trình của từng đối tác. Website không cam kết thời gian phê duyệt hoặc giải ngân.'],
- ['CIC hoặc lịch sử tín dụng ảnh hưởng thế nào?', 'Mỗi đối tác có tiêu chí xét duyệt riêng. Lịch sử tín dụng có thể là một yếu tố được xem xét. Quyết định phê duyệt cuối cùng thuộc về đối tác.'],
- ['Hỗ Trợ Vay Vốn có trực tiếp giải ngân không?', 'Không. hotrovaynhanh.com không phải đơn vị trực tiếp cung cấp hoặc giải ngân khoản vay. Nếu bạn lựa chọn một đề xuất, việc hoàn tất hồ sơ sẽ diễn ra theo quy trình của đối tác.']
+ ['Hỗ Trợ Vay Vốn là gì?', 'hotrovaynhanh.com tiếp nhận nhu cầu tìm hiểu khoản vay cá nhân để bộ phận hỗ trợ liên hệ tư vấn. Website không trực tiếp cho vay, xét duyệt hoặc giải ngân và hiện không tự động đối sánh hay chuyển hồ sơ cho bên cho vay.'],
+ ['Gửi yêu cầu có mất phí không?', 'Website không thu phí tiếp nhận yêu cầu tư vấn. Khoản vay có thể phát sinh lãi và phí theo điều kiện của bên cho vay. Miễn phí gửi yêu cầu không có nghĩa khoản vay miễn lãi hoặc miễn phí.'],
+ ['Số tiền trên biểu mẫu có phải hạn mức được duyệt?', 'Không. Số tiền bạn chọn chỉ thể hiện nhu cầu tham khảo, không phải hạn mức hoặc sản phẩm vay được chào bán. Website hiện chưa công bố điều kiện của một sản phẩm vay cụ thể.'],
+ ['Gửi biểu mẫu xong có được duyệt vay không?', 'Không. Thông báo tiếp nhận chỉ xác nhận yêu cầu tư vấn được gửi đến bộ phận hỗ trợ. Website không đưa ra quyết định tín dụng và không bảo đảm bạn được cấp khoản vay.'],
+ ['Khi nào bộ phận hỗ trợ liên hệ?', 'Bộ phận hỗ trợ sẽ liên hệ theo thông tin bạn đã đồng ý cung cấp. Website không cam kết thời gian liên hệ, phê duyệt hoặc giải ngân cố định.'],
+ ['Website có bỏ qua kiểm tra CIC không?', 'Website không thẩm định tín dụng, không tra cứu CIC qua biểu mẫu này và không cam kết bất kỳ bên cho vay nào bỏ qua việc kiểm tra. Điều kiện thẩm định cần được xác minh trực tiếp với bên cho vay.']
 ];
 export const money = n => new Intl.NumberFormat('vi-VN').format(n) + 'đ';

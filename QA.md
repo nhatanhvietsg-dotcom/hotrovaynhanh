@@ -62,3 +62,8 @@
 - Bỏ thông tin chưa xác nhận/nhãn dự thảo trên các trang chính sách; thêm ngày hiệu lực 03/11/2026, nội dung đúng luồng Gmail thực tế và kênh yêu cầu quyền riêng tư. Không tuyên bố có đối tác tích hợp hoặc phê duyệt pháp lý bên thứ ba.
 - Build Worker và Netlify thành công. 21/21 tests đạt, gồm kiểm tra liên hệ đúng ở mọi trang, không còn placeholder/draft/noindex trên policy, robots/sitemap mở trang công khai, API và cảm ơn vẫn noindex.
 - Cổng webhook/đối tác cũ vẫn bị khóa bởi legalApproved=false; luồng SMTP không đổi.
+
+
+## Rà soát nội dung 07/11/2026
+
+Xem AUDIT-GOOGLE-ADS.md. Đã build cả Worker/Netlify, 23/23 kiểm tra tự động đạt. Kiểm tra Chrome desktop và viewport 390×844 trước khi công bố. Form thành công/thất bại dùng mock cục bộ; consent mặc định tắt; gửi hai lần tạo một mock acceptance; externalDeliveries=0. Không gửi lead production. Còn thiếu hồ sơ sản phẩm thực tế (bên cho vay, kỳ hạn, APR, phí, ví dụ tổng tiền), chưa đủ điều kiện kết luận sẵn sàng chạy Google Ads.

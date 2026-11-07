@@ -43,6 +43,8 @@ Không đặt password vào frontend, Git, netlify.toml, output hoặc API respo
 
 ## Kiểm thử
 
+**Rà soát 07/11/2026:** Xem [AUDIT-GOOGLE-ADS.md](AUDIT-GOOGLE-ADS.md). Website chưa đủ dữ liệu sản phẩm để chạy Google Ads. Kiểm thử luồng gửi bằng transport mock/môi trường cục bộ; không tạo lead thật khi audit. Các bước kiểm thử SMTP production dưới đây chỉ thực hiện khi được chủ website yêu cầu riêng.
+
 `npm run build && npm run build:netlify && npm test`. Mở trang với `?utm_source=qa&utm_campaign=email-test`; nhập dữ liệu ghi rõ “Kiểm Thử Không Liên Hệ”, hoàn tất form và kiểm tra `/cam-on`. Gmail phải nhận đúng số tiền 8.500.000đ, phone, tiếng Việt và nguồn QA. Kiểm tra Inbox/Spam. Kiểm tra lỗi bằng transport mock, không đổi password production để thử lỗi.
 
 Dedup requestId + digest trong cùng instance 30 phút, không giữ PII trong cache. Không bảo đảm exactly-once giữa cold starts; Message-ID ổn định để đối chiếu. SMTP timeout sau khi server đã nhận có thể khiến retry tạo email trùng. Nếu cần bảo đảm cao hơn, thêm kho idempotency phân tán/queue; Gmail có quota riêng. Rate limit không thay thế CAPTCHA khi bị bot phân tán. SMTP accepted chứng minh Gmail nhận thư để xử lý, không chứng minh inbox của người nhận đã hiển thị; kiểm tra hộp thư riêng.
