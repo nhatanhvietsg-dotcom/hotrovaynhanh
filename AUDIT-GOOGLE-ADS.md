@@ -47,3 +47,8 @@ Khi có tài liệu xác thực, bổ sung đầy đủ thông tin sản phẩm 
 - [Khoản vay cá nhân](https://support.google.com/adspolicy/answer/15188216)
 - [Công bố thông tin](https://support.google.com/adspolicy/answer/15187149)
 - [Thông tin gây hiểu nhầm](https://support.google.com/adspolicy/answer/6020955)
+
+
+## Cập nhật 21/11/2026: thông tin tham khảo từ ảnh chủ website cung cấp
+
+Đã đối chiếu ảnh với https://viettelmoney.vn/service/fecredit/ và thêm mục tham khảo FE CREDIT qua Viettel Money: 6–100 triệu, 6–36 tháng, tối thiểu 2,1%/tháng theo dư nợ giảm dần, điều kiện nguồn và ví dụ 10 triệu/12 tháng với các số làm tròn. Không thêm logo, không tuyên bố quan hệ đối tác, không gắn form với sản phẩm, không đổi phạm vi tiền trên form tư vấn. Phân biệt lãi suất tối thiểu với APR tối đa, công khai rằng nguồn chưa đủ APR tối đa/phí/bảo hiểm cho ví dụ. Mục tham khảo này không khắc phục các dữ liệu và bằng chứng còn thiếu đã liệt kê, không tạo kết luận sẵn sàng chạy Google Ads.
