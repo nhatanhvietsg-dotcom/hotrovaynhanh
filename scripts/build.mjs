@@ -1,3 +1,4 @@
+import './build-admin.mjs';
 import {readFile,writeFile,mkdir,readdir,rm} from 'node:fs/promises';
 import {resolve,extname} from 'node:path';
 import {renderPage,legalPages} from '../src/pages.js';
@@ -12,4 +13,4 @@ await rm(resolve(root,'dist'),{force:true,recursive:true});await mkdir(resolve(r
 const worker=await readFile(resolve(root,'worker/index.js'),'utf8');
 await writeFile(resolve(root,'dist/server/index.js'),'const CONFIG='+JSON.stringify(config)+';\nconst ASSETS='+JSON.stringify(assets)+';\n'+worker);
 await writeFile(resolve(root,'dist/.openai/hosting.json'),await readFile(resolve(root,'.openai/hosting.json')));
-console.log('Built '+Object.keys(assets).length+' routes and assets. No third-party JavaScript dependencies.');
+console.log('Built '+Object.keys(assets).length+' routes and assets, including the CMS entry point.');

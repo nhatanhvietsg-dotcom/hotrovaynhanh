@@ -1,3 +1,4 @@
+import './build-admin.mjs';
 import { cp, mkdir, readFile, rm, writeFile } from 'node:fs/promises';
 import { resolve } from 'node:path';
 import { config } from '../src/config.js';
@@ -18,6 +19,7 @@ await writeFile(resolve(output, '404.html'), renderPage('/404'));
 const headers = ['/*', ...Object.entries(security).map(([key, value]) => `  ${key}: ${value}`)];
 if (!config.policiesPublished) headers.push('  X-Robots-Tag: noindex, nofollow');
 headers.push('/api/*','  X-Robots-Tag: noindex, nofollow','/cam-on','  X-Robots-Tag: noindex, nofollow','/cam-on/*','  X-Robots-Tag: noindex, nofollow','/404.html','  X-Robots-Tag: noindex, nofollow');
+headers.push('/admin/*','  X-Robots-Tag: noindex, nofollow','  Cache-Control: no-store',"  Content-Security-Policy: default-src 'self'; script-src 'self' https://cdn.jsdelivr.net/npm/decap-cms@3.18.0/dist/decap-cms.js; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://avatars.githubusercontent.com https://raw.githubusercontent.com; font-src 'self' data:; connect-src 'self' https://api.github.com https://api.netlify.com https://raw.githubusercontent.com; frame-src 'self' blob: https://api.netlify.com; frame-ancestors 'self'; worker-src blob:; base-uri 'self'; form-action 'self'; object-src 'none'");
 await writeFile(resolve(output, '_headers'), headers.join('\n') + '\n');
 const runtime = resolve(root, '.netlify-runtime');
 await mkdir(runtime, { recursive: true });

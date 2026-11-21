@@ -56,3 +56,12 @@ Dedup requestId + digest trong cùng instance 30 phút, không giữ PII trong c
 Chủ website xác nhận công khai địa chỉ 19 Nguyễn Hữu Cảnh, Phường Thạnh Mỹ Tây, Thành phố Hồ Chí Minh, hotline 0938443655 và email thienhuongnguyen1010@gmail.com. Đầu mối vận hành được ghi theo lựa chọn của chủ website là Bộ phận quản trị Hỗ Trợ Vay Vốn; không tự tạo tên công ty hoặc mã số thuế. Không ấn định thời hạn lưu email theo số ngày; chính sách nêu nơi lưu, cách yêu cầu xóa/rút đồng ý và việc rà soát nhu cầu lưu giữ. Không thêm lịch xóa tự động.
 
 Nội dung tại src/policies.js gồm Điều khoản sử dụng, Chính sách bảo mật, Cookie, Thông tin quan trọng, Liên hệ/khiếu nại; công bố ngày hiệu lực và phiên bản, không còn nhãn dự thảo. Footer và trang liên hệ có liên kết tel/mailto. policiesPublished mở robots/index cho trang công khai; API, trang cảm ơn và lỗi vẫn noindex. legalApproved=false giữ nguyên cổng webhook cũ, không tác động email mode.
+
+
+## Quản trị nội dung
+
+Mở https://hotrovaynhanh.com/admin/. Decap CMS 3.18.0, GitHub backend, nhánh main. Cần kết nối GitHub OAuth qua Netlify một lần theo /admin/huong-dan.html. Client Secret chỉ nhập trực tiếp tại Netlify; không lưu trong mã nguồn hoặc gửi qua chat. Chưa kiểm thử đăng nhập/xuất bản thực tế cho đến khi chủ tài khoản kết nối và cấp quyền OAuth.
+
+Nội dung tại content/site.json: 11 khu vực trang chủ, 7 ảnh dùng chung, SEO và liên hệ. Nội dung trùng nhau dùng chung bản sửa; đổi ảnh thay đồng thời các vị trí dùng ảnh đó. Email công khai không thay hộp thư SMTP nhận lead. Các trang chính sách vẫn quản lý tại src/policies.js.
+
+Build sinh public/admin/config.yml và preview-template.json; không sửa tệp sinh bằng tay. Preview được sandbox, không chạy JavaScript hoặc gửi form. Văn bản được escape, đường dẫn ảnh raster chỉ nhận /assets/ hoặc /uploads/. Publish cập nhật GitHub và kích hoạt Netlify CD. Không dùng Identity hoặc Git Gateway.

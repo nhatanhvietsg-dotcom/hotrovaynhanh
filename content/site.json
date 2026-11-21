@@ -1,0 +1,714 @@
+{
+  "settings": {
+    "title": "Gửi nhu cầu tìm hiểu khoản vay cá nhân | Hỗ Trợ Vay Vốn",
+    "description": "Hỗ Trợ Vay Vốn tiếp nhận nhu cầu để bộ phận hỗ trợ liên hệ tư vấn. Website không trực tiếp cho vay, xét duyệt hoặc giải ngân.",
+    "operatorName": "Trần Thị Yến Nhi",
+    "address": "19 Nguyễn Hữu Cảnh, Phường Thạnh Mỹ Tây, Thành phố Hồ Chí Minh",
+    "hotline": "0938443655",
+    "email": "thienhuongnguyen1010@gmail.com"
+  },
+  "groups": [
+    {
+      "key": "hero",
+      "label": "Phần đầu trang",
+      "items": [
+        {
+          "original": "Số tiền tham khảo",
+          "value": "Số tiền tham khảo",
+          "label": "Số tiền tham khảo"
+        },
+        {
+          "original": "Gửi nhu cầu",
+          "value": "Gửi nhu cầu",
+          "label": "Gửi nhu cầu"
+        },
+        {
+          "original": "Liên hệ tư vấn",
+          "value": "Liên hệ tư vấn",
+          "label": "Liên hệ tư vấn"
+        },
+        {
+          "original": "Quy trình đơn giản",
+          "value": "Quy trình đơn giản",
+          "label": "Quy trình đơn giản"
+        },
+        {
+          "original": "TIẾP NHẬN NHU CẦU TƯ VẤN",
+          "value": "TIẾP NHẬN NHU CẦU TƯ VẤN",
+          "label": "TIẾP NHẬN NHU CẦU TƯ VẤN"
+        },
+        {
+          "original": "Gửi nhu cầu tìm hiểu",
+          "value": "Gửi nhu cầu tìm hiểu",
+          "label": "Gửi nhu cầu tìm hiểu"
+        },
+        {
+          "original": "khoản vay cá nhân",
+          "value": "khoản vay cá nhân",
+          "label": "khoản vay cá nhân"
+        },
+        {
+          "original": "Bạn đang cần khoảng bao nhiêu?",
+          "value": "Bạn đang cần khoảng bao nhiêu?",
+          "label": "Bạn đang cần khoảng bao nhiêu?"
+        },
+        {
+          "original": "Gửi nhu cầu tư vấn",
+          "value": "Gửi nhu cầu tư vấn",
+          "label": "Gửi nhu cầu tư vấn"
+        },
+        {
+          "original": "Miễn phí gửi yêu cầu",
+          "value": "Miễn phí gửi yêu cầu",
+          "label": "Miễn phí gửi yêu cầu"
+        },
+        {
+          "original": "Đăng ký trực tuyến",
+          "value": "Đăng ký trực tuyến",
+          "label": "Đăng ký trực tuyến"
+        },
+        {
+          "original": "Thông tin được bảo mật",
+          "value": "Thông tin được bảo mật",
+          "label": "Thông tin được bảo mật"
+        },
+        {
+          "original": "Miễn phí gửi yêu cầu. Việc gửi thông tin không bảo đảm được cấp khoản vay. Website không thu phí tiếp nhận yêu cầu tư vấn. Khoản vay có thể phát sinh lãi và phí theo điều kiện của bên cho vay.",
+          "value": "Miễn phí gửi yêu cầu. Việc gửi thông tin không bảo đảm được cấp khoản vay. Website không thu phí tiếp nhận yêu cầu tư vấn. Khoản vay có thể phát sinh lãi và phí theo điều kiện của bên cho vay.",
+          "label": "Miễn phí gửi yêu cầu. Việc gửi thông tin không bảo đảm được cấp khoản vay. Website kh"
+        }
+      ]
+    },
+    {
+      "key": "trust",
+      "label": "Các điểm nổi bật",
+      "items": [
+        {
+          "original": "Không phải khoản vay miễn lãi",
+          "value": "Không phải khoản vay miễn lãi",
+          "label": "Không phải khoản vay miễn lãi"
+        },
+        {
+          "original": "Đơn giản chỉ vài thao tác",
+          "value": "Đơn giản chỉ vài thao tác",
+          "label": "Đơn giản chỉ vài thao tác"
+        },
+        {
+          "original": "Bộ phận hỗ trợ liên hệ",
+          "value": "Bộ phận hỗ trợ liên hệ",
+          "label": "Bộ phận hỗ trợ liên hệ"
+        },
+        {
+          "original": "Theo thông tin bạn cung cấp",
+          "value": "Theo thông tin bạn cung cấp",
+          "label": "Theo thông tin bạn cung cấp"
+        },
+        {
+          "original": "Bảo mật thông tin",
+          "value": "Bảo mật thông tin",
+          "label": "Bảo mật thông tin"
+        },
+        {
+          "original": "Xử lý theo chính sách bảo mật",
+          "value": "Xử lý theo chính sách bảo mật",
+          "label": "Xử lý theo chính sách bảo mật"
+        }
+      ]
+    },
+    {
+      "key": "service",
+      "label": "Phạm vi dịch vụ",
+      "items": [
+        {
+          "original": "PHẠM VI DỊCH VỤ",
+          "value": "PHẠM VI DỊCH VỤ",
+          "label": "PHẠM VI DỊCH VỤ"
+        },
+        {
+          "original": "Thông tin về dịch vụ tư vấn",
+          "value": "Thông tin về dịch vụ tư vấn",
+          "label": "Thông tin về dịch vụ tư vấn"
+        },
+        {
+          "original": "Website không thu phí tiếp nhận yêu cầu tư vấn.",
+          "value": "Website không thu phí tiếp nhận yêu cầu tư vấn.",
+          "label": "Website không thu phí tiếp nhận yêu cầu tư vấn."
+        },
+        {
+          "original": "Khoản vay có thể phát sinh lãi và phí theo điều kiện của bên cho vay.",
+          "value": "Khoản vay có thể phát sinh lãi và phí theo điều kiện của bên cho vay.",
+          "label": "Khoản vay có thể phát sinh lãi và phí theo điều kiện của bên cho vay."
+        },
+        {
+          "original": "Website hiện chưa nhận hồ sơ vay cho một sản phẩm cụ thể. Thông tin tham khảo có dẫn nguồn bên dưới không phải báo giá hoặc cam kết cấp khoản vay. Số tiền trên biểu mẫu chỉ là nhu cầu tham khảo, không phải hạn mức hoặc sản phẩm vay được chào bán.",
+          "value": "Website hiện chưa nhận hồ sơ vay cho một sản phẩm cụ thể. Thông tin tham khảo có dẫn nguồn bên dưới không phải báo giá hoặc cam kết cấp khoản vay. Số tiền trên biểu mẫu chỉ là nhu cầu tham khảo, không phải hạn mức hoặc sản phẩm vay được chào bán.",
+          "label": "Website hiện chưa nhận hồ sơ vay cho một sản phẩm cụ thể. Thông tin tham khảo có dẫn "
+        },
+        {
+          "original": "Kênh tiếp nhận yêu cầu",
+          "value": "Kênh tiếp nhận yêu cầu",
+          "label": "Kênh tiếp nhận yêu cầu"
+        },
+        {
+          "original": "Địa chỉ:",
+          "value": "Địa chỉ:",
+          "label": "Địa chỉ:"
+        },
+        {
+          "original": "Hotline:",
+          "value": "Hotline:",
+          "label": "Hotline:"
+        },
+        {
+          "original": "Email:",
+          "value": "Email:",
+          "label": "Email:"
+        }
+      ]
+    },
+    {
+      "key": "loan",
+      "label": "Thông tin lãi suất",
+      "items": [
+        {
+          "original": "THÔNG TIN THAM KHẢO CÓ DẪN NGUỒN",
+          "value": "THÔNG TIN THAM KHẢO CÓ DẪN NGUỒN",
+          "label": "THÔNG TIN THAM KHẢO CÓ DẪN NGUỒN"
+        },
+        {
+          "original": "Thông tin khoản vay FE CREDIT",
+          "value": "Thông tin khoản vay FE CREDIT",
+          "label": "Thông tin khoản vay FE CREDIT"
+        },
+        {
+          "original": "qua Viettel Money",
+          "value": "qua Viettel Money",
+          "label": "qua Viettel Money"
+        },
+        {
+          "original": "Thông tin từ Viettel Money, đối chiếu ngày 21/11/2026. Đây không phải báo giá của Hỗ Trợ Vay Vốn; biểu mẫu tư vấn trên website không phải hồ sơ vay FE CREDIT.",
+          "value": "Thông tin từ Viettel Money, đối chiếu ngày 21/11/2026. Đây không phải báo giá của Hỗ Trợ Vay Vốn; biểu mẫu tư vấn trên website không phải hồ sơ vay FE CREDIT.",
+          "label": "Thông tin từ Viettel Money, đối chiếu ngày 21/11/2026. Đây không phải báo giá của Hỗ "
+        },
+        {
+          "original": "Số tiền vay",
+          "value": "Số tiền vay",
+          "label": "Số tiền vay"
+        },
+        {
+          "original": "6–100 triệu đồng",
+          "value": "6–100 triệu đồng",
+          "label": "6–100 triệu đồng"
+        },
+        {
+          "original": "Kỳ hạn vay",
+          "value": "Kỳ hạn vay",
+          "label": "Kỳ hạn vay"
+        },
+        {
+          "original": "6–36 tháng",
+          "value": "6–36 tháng",
+          "label": "6–36 tháng"
+        },
+        {
+          "original": "Lãi suất tối thiểu theo nguồn",
+          "value": "Lãi suất tối thiểu theo nguồn",
+          "label": "Lãi suất tối thiểu theo nguồn"
+        },
+        {
+          "original": "2,1%/tháng",
+          "value": "2,1%/tháng",
+          "label": "2,1%/tháng"
+        },
+        {
+          "original": "Tính trên dư nợ giảm dần; nguồn ghi 25%/năm. Mức thực tế tùy đánh giá tín dụng của FE CREDIT.",
+          "value": "Tính trên dư nợ giảm dần; nguồn ghi 25%/năm. Mức thực tế tùy đánh giá tín dụng của FE CREDIT.",
+          "label": "Tính trên dư nợ giảm dần; nguồn ghi 25%/năm. Mức thực tế tùy đánh giá tín dụng của FE"
+        },
+        {
+          "original": "Đối tượng theo thông tin nguồn",
+          "value": "Đối tượng theo thông tin nguồn",
+          "label": "Đối tượng theo thông tin nguồn"
+        },
+        {
+          "original": "Khách hàng 20–60 tuổi, thuê bao Viettel hoạt động trên 12 tháng hoặc ViettelPay đã định danh hoạt động trên 3 tháng.",
+          "value": "Khách hàng 20–60 tuổi, thuê bao Viettel hoạt động trên 12 tháng hoặc ViettelPay đã định danh hoạt động trên 3 tháng.",
+          "label": "Khách hàng 20–60 tuổi, thuê bao Viettel hoạt động trên 12 tháng hoặc ViettelPay đã đị"
+        },
+        {
+          "original": "Ví dụ do Viettel Money công bố",
+          "value": "Ví dụ do Viettel Money công bố",
+          "label": "Ví dụ do Viettel Money công bố"
+        },
+        {
+          "original": "Vay 10.000.000đ trong 12 tháng: khoảng 950.000đ/tháng, tổng khoảng 11.400.000đ, chênh lệch so với tiền vay khoảng 1.400.000đ. Đây là số làm tròn theo nguồn; cần xác nhận lịch trả và chi phí thực tế trước khi ký.",
+          "value": "Vay 10.000.000đ trong 12 tháng: khoảng 950.000đ/tháng, tổng khoảng 11.400.000đ, chênh lệch so với tiền vay khoảng 1.400.000đ. Đây là số làm tròn theo nguồn; cần xác nhận lịch trả và chi phí thực tế trước khi ký.",
+          "label": "Vay 10.000.000đ trong 12 tháng: khoảng 950.000đ/tháng, tổng khoảng 11.400.000đ, chênh"
+        },
+        {
+          "original": "APR tối đa và phí:",
+          "value": "APR tối đa và phí:",
+          "label": "APR tối đa và phí:"
+        },
+        {
+          "original": "Nguồn được dẫn chưa nêu APR tối đa hoặc đầy đủ phí, bảo hiểm và điều kiện áp dụng trong ví dụ này. Lãi suất tối thiểu không phải APR tối đa. Cần hỏi bên cho vay về toàn bộ chi phí và tổng nghĩa vụ thanh toán.",
+          "value": "Nguồn được dẫn chưa nêu APR tối đa hoặc đầy đủ phí, bảo hiểm và điều kiện áp dụng trong ví dụ này. Lãi suất tối thiểu không phải APR tối đa. Cần hỏi bên cho vay về toàn bộ chi phí và tổng nghĩa vụ thanh toán.",
+          "label": "Nguồn được dẫn chưa nêu APR tối đa hoặc đầy đủ phí, bảo hiểm và điều kiện áp dụng tro"
+        },
+        {
+          "original": "Xem thông tin gốc tại Viettel Money ↗",
+          "value": "Xem thông tin gốc tại Viettel Money ↗",
+          "label": "Xem thông tin gốc tại Viettel Money ↗"
+        }
+      ]
+    },
+    {
+      "key": "benefits",
+      "label": "Lợi ích",
+      "items": [
+        {
+          "original": "LỢI ÍCH KHI SỬ DỤNG",
+          "value": "LỢI ÍCH KHI SỬ DỤNG",
+          "label": "LỢI ÍCH KHI SỬ DỤNG"
+        },
+        {
+          "original": "Gửi nhu cầu trực tuyến",
+          "value": "Gửi nhu cầu trực tuyến",
+          "label": "Gửi nhu cầu trực tuyến"
+        },
+        {
+          "original": "để được liên hệ tư vấn",
+          "value": "để được liên hệ tư vấn",
+          "label": "để được liên hệ tư vấn"
+        },
+        {
+          "original": "Bạn chủ động gửi thông tin và lựa chọn có tiếp tục tìm hiểu điều kiện khoản vay hay không.",
+          "value": "Bạn chủ động gửi thông tin và lựa chọn có tiếp tục tìm hiểu điều kiện khoản vay hay không.",
+          "label": "Bạn chủ động gửi thông tin và lựa chọn có tiếp tục tìm hiểu điều kiện khoản vay hay k"
+        },
+        {
+          "original": "Miễn phí gửi yêu cầu tư vấn",
+          "value": "Miễn phí gửi yêu cầu tư vấn",
+          "label": "Miễn phí gửi yêu cầu tư vấn"
+        },
+        {
+          "original": "Website không thu phí tiếp nhận yêu cầu; khoản vay có thể có lãi và phí.",
+          "value": "Website không thu phí tiếp nhận yêu cầu; khoản vay có thể có lãi và phí.",
+          "label": "Website không thu phí tiếp nhận yêu cầu; khoản vay có thể có lãi và phí."
+        },
+        {
+          "original": "Nhanh chóng & thuận tiện",
+          "value": "Nhanh chóng & thuận tiện",
+          "label": "Nhanh chóng & thuận tiện"
+        },
+        {
+          "original": "Chỉ cần cung cấp một số thông tin cơ bản để bắt đầu.",
+          "value": "Chỉ cần cung cấp một số thông tin cơ bản để bắt đầu.",
+          "label": "Chỉ cần cung cấp một số thông tin cơ bản để bắt đầu."
+        },
+        {
+          "original": "Tiếp nhận nhu cầu và liên hệ theo thông tin bạn đồng ý cung cấp.",
+          "value": "Tiếp nhận nhu cầu và liên hệ theo thông tin bạn đồng ý cung cấp.",
+          "label": "Tiếp nhận nhu cầu và liên hệ theo thông tin bạn đồng ý cung cấp."
+        },
+        {
+          "original": "Thông tin cá nhân được xử lý theo chính sách bảo mật của chúng tôi.",
+          "value": "Thông tin cá nhân được xử lý theo chính sách bảo mật của chúng tôi.",
+          "label": "Thông tin cá nhân được xử lý theo chính sách bảo mật của chúng tôi."
+        }
+      ]
+    },
+    {
+      "key": "how",
+      "label": "Cách hoạt động",
+      "items": [
+        {
+          "original": "Gửi yêu cầu",
+          "value": "Gửi yêu cầu",
+          "label": "Gửi yêu cầu"
+        },
+        {
+          "original": "trực tuyến",
+          "value": "trực tuyến",
+          "label": "trực tuyến"
+        },
+        {
+          "original": "CÁCH HOẠT ĐỘNG",
+          "value": "CÁCH HOẠT ĐỘNG",
+          "label": "CÁCH HOẠT ĐỘNG"
+        },
+        {
+          "original": "3 bước tìm hiểu",
+          "value": "3 bước tìm hiểu",
+          "label": "3 bước tìm hiểu"
+        },
+        {
+          "original": "Chọn số tiền tham khảo, nhập thông tin liên hệ và xác nhận đồng ý.",
+          "value": "Chọn số tiền tham khảo, nhập thông tin liên hệ và xác nhận đồng ý.",
+          "label": "Chọn số tiền tham khảo, nhập thông tin liên hệ và xác nhận đồng ý."
+        },
+        {
+          "original": "Bộ phận hỗ trợ tiếp nhận nhu cầu và liên hệ tư vấn.",
+          "value": "Bộ phận hỗ trợ tiếp nhận nhu cầu và liên hệ tư vấn.",
+          "label": "Bộ phận hỗ trợ tiếp nhận nhu cầu và liên hệ tư vấn."
+        },
+        {
+          "original": "Tìm hiểu trước khi quyết định",
+          "value": "Tìm hiểu trước khi quyết định",
+          "label": "Tìm hiểu trước khi quyết định"
+        },
+        {
+          "original": "Tìm hiểu điều kiện, lãi suất và phí trước khi quyết định.",
+          "value": "Tìm hiểu điều kiện, lãi suất và phí trước khi quyết định.",
+          "label": "Tìm hiểu điều kiện, lãi suất và phí trước khi quyết định."
+        }
+      ]
+    },
+    {
+      "key": "use",
+      "label": "Nhu cầu tư vấn",
+      "items": [
+        {
+          "original": "NHU CẦU BẠN MUỐN TÌM HIỂU",
+          "value": "NHU CẦU BẠN MUỐN TÌM HIỂU",
+          "label": "NHU CẦU BẠN MUỐN TÌM HIỂU"
+        },
+        {
+          "original": "Bạn đang cần tài chính",
+          "value": "Bạn đang cần tài chính",
+          "label": "Bạn đang cần tài chính"
+        },
+        {
+          "original": "cho việc gì?",
+          "value": "cho việc gì?",
+          "label": "cho việc gì?"
+        },
+        {
+          "original": "Chọn nội dung bạn muốn trao đổi với bộ phận hỗ trợ. Đây không phải danh sách sản phẩm hoặc cam kết cấp khoản vay.",
+          "value": "Chọn nội dung bạn muốn trao đổi với bộ phận hỗ trợ. Đây không phải danh sách sản phẩm hoặc cam kết cấp khoản vay.",
+          "label": "Chọn nội dung bạn muốn trao đổi với bộ phận hỗ trợ. Đây không phải danh sách sản phẩm"
+        },
+        {
+          "original": "Chi tiêu phát sinh",
+          "value": "Chi tiêu phát sinh",
+          "label": "Chi tiêu phát sinh"
+        },
+        {
+          "original": "Trao đổi về nhu cầu chi tiêu cá nhân ngoài kế hoạch.",
+          "value": "Trao đổi về nhu cầu chi tiêu cá nhân ngoài kế hoạch.",
+          "label": "Trao đổi về nhu cầu chi tiêu cá nhân ngoài kế hoạch."
+        },
+        {
+          "original": "Cân đối tài chính",
+          "value": "Cân đối tài chính",
+          "label": "Cân đối tài chính"
+        },
+        {
+          "original": "Chủ động hơn trong việc sắp xếp các khoản chi trong tháng.",
+          "value": "Chủ động hơn trong việc sắp xếp các khoản chi trong tháng.",
+          "label": "Chủ động hơn trong việc sắp xếp các khoản chi trong tháng."
+        },
+        {
+          "original": "Nhu cầu cá nhân",
+          "value": "Nhu cầu cá nhân",
+          "label": "Nhu cầu cá nhân"
+        },
+        {
+          "original": "Mua sắm, du lịch hoặc những kế hoạch cá nhân.",
+          "value": "Mua sắm, du lịch hoặc những kế hoạch cá nhân.",
+          "label": "Mua sắm, du lịch hoặc những kế hoạch cá nhân."
+        },
+        {
+          "original": "Nhu cầu khác",
+          "value": "Nhu cầu khác",
+          "label": "Nhu cầu khác"
+        },
+        {
+          "original": "Mô tả nhu cầu khi bộ phận hỗ trợ liên hệ; không phải sản phẩm vay được chào bán.",
+          "value": "Mô tả nhu cầu khi bộ phận hỗ trợ liên hệ; không phải sản phẩm vay được chào bán.",
+          "label": "Mô tả nhu cầu khi bộ phận hỗ trợ liên hệ; không phải sản phẩm vay được chào bán."
+        }
+      ]
+    },
+    {
+      "key": "responsible",
+      "label": "Lưu ý trước khi vay",
+      "items": [
+        {
+          "original": "HIỂU RÕ TRƯỚC KHI QUYẾT ĐỊNH",
+          "value": "HIỂU RÕ TRƯỚC KHI QUYẾT ĐỊNH",
+          "label": "HIỂU RÕ TRƯỚC KHI QUYẾT ĐỊNH"
+        },
+        {
+          "original": "Hiểu thông tin",
+          "value": "Hiểu thông tin",
+          "label": "Hiểu thông tin"
+        },
+        {
+          "original": "trước khi quyết định",
+          "value": "trước khi quyết định",
+          "label": "trước khi quyết định"
+        },
+        {
+          "original": "Không ép buộc đăng ký",
+          "value": "Không ép buộc đăng ký",
+          "label": "Không ép buộc đăng ký"
+        },
+        {
+          "original": "Bạn chủ động quyết định có gửi nhu cầu và tiếp tục trao đổi hay không.",
+          "value": "Bạn chủ động quyết định có gửi nhu cầu và tiếp tục trao đổi hay không.",
+          "label": "Bạn chủ động quyết định có gửi nhu cầu và tiếp tục trao đổi hay không."
+        },
+        {
+          "original": "Xem điều kiện trước khi quyết định",
+          "value": "Xem điều kiện trước khi quyết định",
+          "label": "Xem điều kiện trước khi quyết định"
+        },
+        {
+          "original": "Kiểm tra kỳ hạn, APR, cách tính lãi, tất cả khoản phí và tổng tiền phải trả.",
+          "value": "Kiểm tra kỳ hạn, APR, cách tính lãi, tất cả khoản phí và tổng tiền phải trả.",
+          "label": "Kiểm tra kỳ hạn, APR, cách tính lãi, tất cả khoản phí và tổng tiền phải trả."
+        },
+        {
+          "original": "Bên cho vay quyết định phê duyệt",
+          "value": "Bên cho vay quyết định phê duyệt",
+          "label": "Bên cho vay quyết định phê duyệt"
+        },
+        {
+          "original": "Hỗ Trợ Vay Vốn không quyết định việc cấp khoản vay.",
+          "value": "Hỗ Trợ Vay Vốn không quyết định việc cấp khoản vay.",
+          "label": "Hỗ Trợ Vay Vốn không quyết định việc cấp khoản vay."
+        },
+        {
+          "original": "Vay trong khả năng chi trả",
+          "value": "Vay trong khả năng chi trả",
+          "label": "Vay trong khả năng chi trả"
+        },
+        {
+          "original": "Chỉ lựa chọn khoản vay khi bạn hiểu rõ nghĩa vụ thanh toán.",
+          "value": "Chỉ lựa chọn khoản vay khi bạn hiểu rõ nghĩa vụ thanh toán.",
+          "label": "Chỉ lựa chọn khoản vay khi bạn hiểu rõ nghĩa vụ thanh toán."
+        }
+      ]
+    },
+    {
+      "key": "eligibility",
+      "label": "Điều kiện tham khảo",
+      "items": [
+        {
+          "original": "ĐIỀU KIỆN THAM KHẢO",
+          "value": "ĐIỀU KIỆN THAM KHẢO",
+          "label": "ĐIỀU KIỆN THAM KHẢO"
+        },
+        {
+          "original": "Điều kiện tham khảo khi tìm hiểu khoản vay",
+          "value": "Điều kiện tham khảo khi tìm hiểu khoản vay",
+          "label": "Điều kiện tham khảo khi tìm hiểu khoản vay"
+        },
+        {
+          "original": "Các mục dưới đây giúp bạn kiểm tra thông tin. Chúng không phải tiêu chí đủ điều kiện vay của một sản phẩm cụ thể.",
+          "value": "Các mục dưới đây giúp bạn kiểm tra thông tin. Chúng không phải tiêu chí đủ điều kiện vay của một sản phẩm cụ thể.",
+          "label": "Các mục dưới đây giúp bạn kiểm tra thông tin. Chúng không phải tiêu chí đủ điều kiện "
+        },
+        {
+          "original": "Đọc kỳ hạn trả nợ",
+          "value": "Đọc kỳ hạn trả nợ",
+          "label": "Đọc kỳ hạn trả nợ"
+        },
+        {
+          "original": "Kiểm tra APR và cách tính lãi",
+          "value": "Kiểm tra APR và cách tính lãi",
+          "label": "Kiểm tra APR và cách tính lãi"
+        },
+        {
+          "original": "Xem toàn bộ khoản phí",
+          "value": "Xem toàn bộ khoản phí",
+          "label": "Xem toàn bộ khoản phí"
+        },
+        {
+          "original": "Biết tổng tiền phải trả",
+          "value": "Biết tổng tiền phải trả",
+          "label": "Biết tổng tiền phải trả"
+        },
+        {
+          "original": "Xác minh bên cho vay",
+          "value": "Xác minh bên cho vay",
+          "label": "Xác minh bên cho vay"
+        },
+        {
+          "original": "Cân nhắc khả năng chi trả",
+          "value": "Cân nhắc khả năng chi trả",
+          "label": "Cân nhắc khả năng chi trả"
+        },
+        {
+          "original": "Việc xem các mục tham khảo hoặc gửi nhu cầu tư vấn không bảo đảm được cấp khoản vay.",
+          "value": "Việc xem các mục tham khảo hoặc gửi nhu cầu tư vấn không bảo đảm được cấp khoản vay.",
+          "label": "Việc xem các mục tham khảo hoặc gửi nhu cầu tư vấn không bảo đảm được cấp khoản vay."
+        }
+      ]
+    },
+    {
+      "key": "faq",
+      "label": "Câu hỏi thường gặp",
+      "items": [
+        {
+          "original": "Câu hỏi",
+          "value": "Câu hỏi",
+          "label": "Câu hỏi"
+        },
+        {
+          "original": "thường gặp",
+          "value": "thường gặp",
+          "label": "thường gặp"
+        },
+        {
+          "original": "GIẢI ĐÁP CÁC THẮC MẮC PHỔ BIẾN",
+          "value": "GIẢI ĐÁP CÁC THẮC MẮC PHỔ BIẾN",
+          "label": "GIẢI ĐÁP CÁC THẮC MẮC PHỔ BIẾN"
+        },
+        {
+          "original": "Có thể bạn đang thắc mắc",
+          "value": "Có thể bạn đang thắc mắc",
+          "label": "Có thể bạn đang thắc mắc"
+        },
+        {
+          "original": "Hỗ Trợ Vay Vốn là gì?",
+          "value": "Hỗ Trợ Vay Vốn là gì?",
+          "label": "Hỗ Trợ Vay Vốn là gì?"
+        },
+        {
+          "original": "hotrovaynhanh.com tiếp nhận nhu cầu tìm hiểu khoản vay cá nhân để bộ phận hỗ trợ liên hệ tư vấn. Website không trực tiếp cho vay, xét duyệt hoặc giải ngân và hiện không tự động đối sánh hay chuyển hồ sơ cho bên cho vay.",
+          "value": "hotrovaynhanh.com tiếp nhận nhu cầu tìm hiểu khoản vay cá nhân để bộ phận hỗ trợ liên hệ tư vấn. Website không trực tiếp cho vay, xét duyệt hoặc giải ngân và hiện không tự động đối sánh hay chuyển hồ sơ cho bên cho vay.",
+          "label": "hotrovaynhanh.com tiếp nhận nhu cầu tìm hiểu khoản vay cá nhân để bộ phận hỗ trợ liên"
+        },
+        {
+          "original": "Gửi yêu cầu có mất phí không?",
+          "value": "Gửi yêu cầu có mất phí không?",
+          "label": "Gửi yêu cầu có mất phí không?"
+        },
+        {
+          "original": "Website không thu phí tiếp nhận yêu cầu tư vấn. Khoản vay có thể phát sinh lãi và phí theo điều kiện của bên cho vay. Miễn phí gửi yêu cầu không có nghĩa khoản vay miễn lãi hoặc miễn phí.",
+          "value": "Website không thu phí tiếp nhận yêu cầu tư vấn. Khoản vay có thể phát sinh lãi và phí theo điều kiện của bên cho vay. Miễn phí gửi yêu cầu không có nghĩa khoản vay miễn lãi hoặc miễn phí.",
+          "label": "Website không thu phí tiếp nhận yêu cầu tư vấn. Khoản vay có thể phát sinh lãi và phí"
+        },
+        {
+          "original": "Số tiền trên biểu mẫu có phải hạn mức được duyệt?",
+          "value": "Số tiền trên biểu mẫu có phải hạn mức được duyệt?",
+          "label": "Số tiền trên biểu mẫu có phải hạn mức được duyệt?"
+        },
+        {
+          "original": "Không. Số tiền bạn chọn chỉ thể hiện nhu cầu tham khảo, không phải hạn mức hoặc sản phẩm vay được chào bán. Biểu mẫu tư vấn này không gắn với một sản phẩm vay cụ thể; thông tin tham khảo có dẫn nguồn không phải hạn mức được cấp cho bạn.",
+          "value": "Không. Số tiền bạn chọn chỉ thể hiện nhu cầu tham khảo, không phải hạn mức hoặc sản phẩm vay được chào bán. Biểu mẫu tư vấn này không gắn với một sản phẩm vay cụ thể; thông tin tham khảo có dẫn nguồn không phải hạn mức được cấp cho bạn.",
+          "label": "Không. Số tiền bạn chọn chỉ thể hiện nhu cầu tham khảo, không phải hạn mức hoặc sản p"
+        },
+        {
+          "original": "Gửi biểu mẫu xong có được duyệt vay không?",
+          "value": "Gửi biểu mẫu xong có được duyệt vay không?",
+          "label": "Gửi biểu mẫu xong có được duyệt vay không?"
+        },
+        {
+          "original": "Không. Thông báo tiếp nhận chỉ xác nhận yêu cầu tư vấn được gửi đến bộ phận hỗ trợ. Website không đưa ra quyết định tín dụng và không bảo đảm bạn được cấp khoản vay.",
+          "value": "Không. Thông báo tiếp nhận chỉ xác nhận yêu cầu tư vấn được gửi đến bộ phận hỗ trợ. Website không đưa ra quyết định tín dụng và không bảo đảm bạn được cấp khoản vay.",
+          "label": "Không. Thông báo tiếp nhận chỉ xác nhận yêu cầu tư vấn được gửi đến bộ phận hỗ trợ. W"
+        },
+        {
+          "original": "Khi nào bộ phận hỗ trợ liên hệ?",
+          "value": "Khi nào bộ phận hỗ trợ liên hệ?",
+          "label": "Khi nào bộ phận hỗ trợ liên hệ?"
+        },
+        {
+          "original": "Bộ phận hỗ trợ sẽ liên hệ theo thông tin bạn đã đồng ý cung cấp. Website không cam kết thời gian liên hệ, phê duyệt hoặc giải ngân cố định.",
+          "value": "Bộ phận hỗ trợ sẽ liên hệ theo thông tin bạn đã đồng ý cung cấp. Website không cam kết thời gian liên hệ, phê duyệt hoặc giải ngân cố định.",
+          "label": "Bộ phận hỗ trợ sẽ liên hệ theo thông tin bạn đã đồng ý cung cấp. Website không cam kế"
+        },
+        {
+          "original": "Website có bỏ qua kiểm tra CIC không?",
+          "value": "Website có bỏ qua kiểm tra CIC không?",
+          "label": "Website có bỏ qua kiểm tra CIC không?"
+        },
+        {
+          "original": "Website không thẩm định tín dụng, không tra cứu CIC qua biểu mẫu này và không cam kết bất kỳ bên cho vay nào bỏ qua việc kiểm tra. Điều kiện thẩm định cần được xác minh trực tiếp với bên cho vay.",
+          "value": "Website không thẩm định tín dụng, không tra cứu CIC qua biểu mẫu này và không cam kết bất kỳ bên cho vay nào bỏ qua việc kiểm tra. Điều kiện thẩm định cần được xác minh trực tiếp với bên cho vay.",
+          "label": "Website không thẩm định tín dụng, không tra cứu CIC qua biểu mẫu này và không cam kết"
+        }
+      ]
+    },
+    {
+      "key": "final",
+      "label": "Lời mời tư vấn",
+      "items": [
+        {
+          "original": "GỬI NHU CẦU TÌM HIỂU",
+          "value": "GỬI NHU CẦU TÌM HIỂU",
+          "label": "GỬI NHU CẦU TÌM HIỂU"
+        },
+        {
+          "original": "Bạn muốn được liên hệ tư vấn?",
+          "value": "Bạn muốn được liên hệ tư vấn?",
+          "label": "Bạn muốn được liên hệ tư vấn?"
+        },
+        {
+          "original": "Bộ phận hỗ trợ tiếp nhận yêu cầu qua email và liên hệ theo thông tin bạn cung cấp.",
+          "value": "Bộ phận hỗ trợ tiếp nhận yêu cầu qua email và liên hệ theo thông tin bạn cung cấp.",
+          "label": "Bộ phận hỗ trợ tiếp nhận yêu cầu qua email và liên hệ theo thông tin bạn cung cấp."
+        },
+        {
+          "original": "Miễn phí gửi yêu cầu · Không bảo đảm được vay",
+          "value": "Miễn phí gửi yêu cầu · Không bảo đảm được vay",
+          "label": "Miễn phí gửi yêu cầu · Không bảo đảm được vay"
+        }
+      ]
+    }
+  ],
+  "images": [
+    {
+      "original": "/assets/design-hero.webp",
+      "image": "/assets/design-hero.webp",
+      "alt": "Người phụ nữ đang sử dụng điện thoại bên laptop trong không gian sáng",
+      "label": "design-hero.webp",
+      "defaultAlt": "Người phụ nữ đang sử dụng điện thoại bên laptop trong không gian sáng"
+    },
+    {
+      "original": "/assets/design-steps.webp",
+      "image": "/assets/design-steps.webp",
+      "alt": "Người đàn ông tìm hiểu trực tuyến",
+      "label": "design-steps.webp",
+      "defaultAlt": "Người đàn ông tìm hiểu trực tuyến"
+    },
+    {
+      "original": "/assets/design-couple.webp",
+      "image": "/assets/design-couple.webp",
+      "alt": "Cặp đôi chủ động lập kế hoạch",
+      "label": "design-couple.webp",
+      "defaultAlt": "Cặp đôi chủ động lập kế hoạch"
+    },
+    {
+      "original": "/assets/work.webp",
+      "image": "/assets/work.webp",
+      "alt": "Bảo vệ thông tin khi tìm hiểu trực tuyến",
+      "label": "work.webp",
+      "defaultAlt": "Bảo vệ thông tin khi tìm hiểu trực tuyến"
+    },
+    {
+      "original": "/assets/design-travel.webp",
+      "image": "/assets/design-travel.webp",
+      "alt": "Người phụ nữ chuẩn bị cho chuyến du lịch",
+      "label": "design-travel.webp",
+      "defaultAlt": "Người phụ nữ chuẩn bị cho chuyến du lịch"
+    },
+    {
+      "original": "/assets/design-family.webp",
+      "image": "/assets/design-family.webp",
+      "alt": "Người cha cùng con học tập tại nhà",
+      "label": "design-family.webp",
+      "defaultAlt": "Người cha cùng con học tập tại nhà"
+    },
+    {
+      "original": "/assets/design-faq.webp",
+      "image": "/assets/design-faq.webp",
+      "alt": "Người phụ nữ suy nghĩ và tìm hiểu thông tin trên điện thoại",
+      "label": "design-faq.webp",
+      "defaultAlt": "Người phụ nữ suy nghĩ và tìm hiểu thông tin trên điện thoại"
+    }
+  ]
+}

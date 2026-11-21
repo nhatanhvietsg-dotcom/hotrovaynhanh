@@ -1,3 +1,4 @@
+import {siteContent,readSettings} from './content.js';
 export const config = {
   brandName: 'Hỗ Trợ Vay Vốn', domain: 'hotrovaynhanh.com',
   minAmount: 500000, maxAmount: 30000000, amountStep: 500000, defaultAmount: 8500000,
@@ -26,4 +27,6 @@ export const faqs = [
  ['Khi nào bộ phận hỗ trợ liên hệ?', 'Bộ phận hỗ trợ sẽ liên hệ theo thông tin bạn đã đồng ý cung cấp. Website không cam kết thời gian liên hệ, phê duyệt hoặc giải ngân cố định.'],
  ['Website có bỏ qua kiểm tra CIC không?', 'Website không thẩm định tín dụng, không tra cứu CIC qua biểu mẫu này và không cam kết bất kỳ bên cho vay nào bỏ qua việc kiểm tra. Điều kiện thẩm định cần được xác minh trực tiếp với bên cho vay.']
 ];
+Object.assign(config,readSettings(siteContent));
+
 export const money = n => new Intl.NumberFormat('vi-VN').format(n) + 'đ';

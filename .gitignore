@@ -10,3 +10,7 @@ artifacts/
 netlify-dist/
 .netlify/
 .netlify-runtime/
+
+# Generated CMS configuration and preview
+public/admin/config.yml
+public/admin/preview-template.json

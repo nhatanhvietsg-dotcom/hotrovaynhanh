@@ -3,3 +3,5 @@ Allow: /
 Disallow: /api/
 Disallow: /cam-on
 Sitemap: https://hotrovaynhanh.com/sitemap.xml
+
+Disallow: /admin/
