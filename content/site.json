@@ -172,22 +172,22 @@
       "items": [
         {
           "original": "THÔNG TIN THAM KHẢO CÓ DẪN NGUỒN",
-          "value": "THÔNG TIN THAM KHẢO CÓ DẪN NGUỒN",
+          "value": "THÔNG TIN THAM KHẢO",
           "label": "THÔNG TIN THAM KHẢO CÓ DẪN NGUỒN"
         },
         {
           "original": "Thông tin khoản vay FE CREDIT",
-          "value": "Thông tin khoản vay FE CREDIT",
+          "value": "Thông tin khoản vay",
           "label": "Thông tin khoản vay FE CREDIT"
         },
         {
           "original": "qua Viettel Money",
-          "value": "qua Viettel Money",
+          "value": "",
           "label": "qua Viettel Money"
         },
         {
           "original": "Thông tin từ Viettel Money, đối chiếu ngày 21/11/2026. Đây không phải báo giá của Hỗ Trợ Vay Vốn; biểu mẫu tư vấn trên website không phải hồ sơ vay FE CREDIT.",
-          "value": "Thông tin từ Viettel Money, đối chiếu ngày 21/11/2026. Đây không phải báo giá của Hỗ Trợ Vay Vốn; biểu mẫu tư vấn trên website không phải hồ sơ vay FE CREDIT.",
+          "value": "Thông tin tham khảo khoản vay không phải báo giá của Hỗ Trợ Vay Vốn; biểu mẫu tư vấn trên website.",
           "label": "Thông tin từ Viettel Money, đối chiếu ngày 21/11/2026. Đây không phải báo giá của Hỗ "
         },
         {
@@ -222,7 +222,7 @@
         },
         {
           "original": "Tính trên dư nợ giảm dần; nguồn ghi 25%/năm. Mức thực tế tùy đánh giá tín dụng của FE CREDIT.",
-          "value": "Tính trên dư nợ giảm dần; nguồn ghi 25%/năm. Mức thực tế tùy đánh giá tín dụng của FE CREDIT.",
+          "value": "Tính trên dư nợ giảm dần; nguồn ghi 25%/năm. Mức thực tế tùy đánh giá tín dụng",
           "label": "Tính trên dư nợ giảm dần; nguồn ghi 25%/năm. Mức thực tế tùy đánh giá tín dụng của FE"
         },
         {
@@ -257,7 +257,7 @@
         },
         {
           "original": "Xem thông tin gốc tại Viettel Money ↗",
-          "value": "Xem thông tin gốc tại Viettel Money ↗",
+          "value": "",
           "label": "Xem thông tin gốc tại Viettel Money ↗"
         }
       ]
