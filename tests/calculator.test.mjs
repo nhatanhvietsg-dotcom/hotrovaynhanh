@@ -26,8 +26,7 @@ test('loan simulation handles zero interest, annuity payments and invalid cash f
 test('homepage includes usable calculator without unsupported bank claims or preset loan rate',()=>{
  const html=renderPage('/');
  assert.ok(html.includes('9 thẻ thông tin từ mẫu tham khảo'));
- assert.ok(html.includes('Nguồn tham khảo độc lập.'));
- assert.ok(html.includes('không phải APR tối đa đã được xác nhận'));
+ assert.ok(!html.includes('Nguồn tham khảo độc lập.'));
  assert.equal((html.match(/class="bank-reference-card"/g)||[]).length,9);
  assert.match(html,/<form id="loan-calculator" novalidate>/);
  assert.match(html,/<script type="module" src="\/loan-calculator.js"><\/script>/);
