@@ -8,3 +8,4 @@
 @media(max-width:600px){.bank-reference{padding-top:42px}.bank-reference:before{height:450px}.bank-reference .loan-guide-heading h2{font-size:26px}.bank-reference-notice{font-size:14px;padding:15px}.bank-reference-track{grid-auto-columns:91%;gap:16px}.bank-reference-card{border-radius:16px}.bank-reference-controls{font-size:13px}.bank-reference-controls button{height:44px;width:44px}.bank-reference .loan-guide-caption{font-size:14px}}
 /* Keep accessible link labels inside the clipped carousel cards. */
 .bank-reference-card{position:relative}
+.bank-reference-visible .floating-contact,.bank-reference-visible .sticky-mobile{display:none!important}

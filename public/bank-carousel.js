@@ -1,5 +1,6 @@
 (()=>{
  const track=document.getElementById('bank-reference-track');if(!track)return;
+ if('IntersectionObserver' in window)new IntersectionObserver(entries=>document.body.classList.toggle('bank-reference-visible',entries[0].isIntersecting)).observe(track.closest('section'));
  const cards=[...track.children],dots=[...document.querySelectorAll('[data-bank-index]')];
  const prev=document.querySelector('[data-bank-prev]'),next=document.querySelector('[data-bank-next]'),position=document.getElementById('bank-card-position');
  function step(){return cards.length>1?cards[1].offsetLeft-cards[0].offsetLeft:track.clientWidth}
