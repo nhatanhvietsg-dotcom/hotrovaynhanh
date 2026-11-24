@@ -23,7 +23,6 @@ if (!previewScript) throw new Error('Loan design preview script is missing');
 await mkdir(resolve(output, 'ban-nhap-khoan-vay'), { recursive: true });
 await writeFile(resolve(output, 'assets/loan-design-preview.js'), previewScript);
 await writeFile(resolve(output, 'ban-nhap-khoan-vay/index.html'), previewSource.replace(/<script>[\s\S]*?<\/script>/, '<script src="/assets/loan-design-preview.js" defer></script>'));
-await writeFile(resolve(output, 'ban-nhap-khoan-vay/index.html'), previewSource.replace(/<script>[\s\S]*?<\/script>/, '<script src="/assets/loan-design-preview.js" defer></script>'));
 const headers = ['/*', ...Object.entries(security).map(([key, value]) => `  ${key}: ${value}`)];
 if (!config.policiesPublished) headers.push('  X-Robots-Tag: noindex, nofollow');
 headers.push('/api/*','  X-Robots-Tag: noindex, nofollow','/cam-on','  X-Robots-Tag: noindex, nofollow','/cam-on/*','  X-Robots-Tag: noindex, nofollow','/404.html','  X-Robots-Tag: noindex, nofollow');
