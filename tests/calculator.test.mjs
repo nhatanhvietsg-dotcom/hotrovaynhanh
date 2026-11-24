@@ -25,10 +25,13 @@ test('loan simulation handles zero interest, annuity payments and invalid cash f
 });
 test('homepage includes usable calculator without unsupported bank claims or preset loan rate',()=>{
  const html=renderPage('/');
- assert.ok(html.includes('Thông tin rõ ràng'));
+ assert.ok(html.includes('9 thẻ thông tin từ mẫu tham khảo'));
+ assert.ok(html.includes('Nguồn tham khảo độc lập.'));
+ assert.ok(html.includes('không phải APR tối đa đã được xác nhận'));
+ assert.equal((html.match(/class="bank-reference-card"/g)||[]).length,9);
  assert.match(html,/<form id="loan-calculator" novalidate>/);
  assert.match(html,/<script type="module" src="\/loan-calculator.js"><\/script>/);
- assert.doesNotMatch(html,/Techcombank|Standard Chartered|VPBank|hợp tác hơn 30|20,22|20\.22/);
+ assert.doesNotMatch(html,/hợp tác hơn 30|20,22|20\.22/);
  for(const id of ['estimate-rate','estimate-fees','estimate-net'])assert.doesNotMatch(html.match(new RegExp('<input id="'+id+'"[^>]+>'))[0],/value=/);
  assert.ok(html.indexOf('id="loan-guide-title"')<html.indexOf('id="loan-calculator"'));
  assert.match(html,/<button type="button"[^>]+data-cta="loan-calculator"/);
