@@ -2,6 +2,15 @@ import {test} from 'node:test';
 import assert from 'node:assert/strict';
 import {renderPage,legalPages} from '../src/pages.js';
 
+test('unsupported product figures are removed and form cannot submit PII in a GET URL',()=>{
+ for(const route of ['/','/gioi-thieu',...Object.keys(legalPages)]){
+  const html=renderPage(route);
+  assert.doesNotMatch(html,/Viettel Money|FE CREDIT|2,1%|25%\/năm|950\.000|Nguồn được dẫn chưa nêu APR/);
+  assert.match(html,/<form id="lead-form" method="post" action="\/api\/leads"/);
+  assert.ok(html.includes('Miễn phí gửi yêu cầu tư vấn. Khoản vay có thể phát sinh lãi và phí. Việc gửi thông tin không bảo đảm được cấp khoản vay.'));
+ }
+});
+
 test('landing page exposes service scope, fees and operator outside collapsed content',()=>{
  const html=renderPage('/');
  const disclosure=html.match(/<section class="section service-disclosure"[\s\S]*?<\/section>/)?.[0];

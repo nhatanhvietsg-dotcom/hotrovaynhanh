@@ -167,102 +167,6 @@
       ]
     },
     {
-      "key": "loan",
-      "label": "Thông tin lãi suất",
-      "items": [
-        {
-          "original": "THÔNG TIN THAM KHẢO CÓ DẪN NGUỒN",
-          "value": "THÔNG TIN THAM KHẢO",
-          "label": "THÔNG TIN THAM KHẢO CÓ DẪN NGUỒN"
-        },
-        {
-          "original": "Thông tin khoản vay FE CREDIT",
-          "value": "Thông tin khoản vay",
-          "label": "Thông tin khoản vay FE CREDIT"
-        },
-        {
-          "original": "qua Viettel Money",
-          "value": "",
-          "label": "qua Viettel Money"
-        },
-        {
-          "original": "Thông tin từ Viettel Money, đối chiếu ngày 21/11/2026. Đây không phải báo giá của Hỗ Trợ Vay Vốn; biểu mẫu tư vấn trên website không phải hồ sơ vay FE CREDIT.",
-          "value": "Thông tin tham khảo khoản vay không phải báo giá của Hỗ Trợ Vay Vốn; biểu mẫu tư vấn trên website.",
-          "label": "Thông tin từ Viettel Money, đối chiếu ngày 21/11/2026. Đây không phải báo giá của Hỗ "
-        },
-        {
-          "original": "Số tiền vay",
-          "value": "Số tiền vay",
-          "label": "Số tiền vay"
-        },
-        {
-          "original": "6–100 triệu đồng",
-          "value": "6–100 triệu đồng",
-          "label": "6–100 triệu đồng"
-        },
-        {
-          "original": "Kỳ hạn vay",
-          "value": "Kỳ hạn vay",
-          "label": "Kỳ hạn vay"
-        },
-        {
-          "original": "6–36 tháng",
-          "value": "6–36 tháng",
-          "label": "6–36 tháng"
-        },
-        {
-          "original": "Lãi suất tối thiểu theo nguồn",
-          "value": "Lãi suất tối thiểu theo nguồn",
-          "label": "Lãi suất tối thiểu theo nguồn"
-        },
-        {
-          "original": "2,1%/tháng",
-          "value": "2,1%/tháng",
-          "label": "2,1%/tháng"
-        },
-        {
-          "original": "Tính trên dư nợ giảm dần; nguồn ghi 25%/năm. Mức thực tế tùy đánh giá tín dụng của FE CREDIT.",
-          "value": "Tính trên dư nợ giảm dần; nguồn ghi 25%/năm. Mức thực tế tùy đánh giá tín dụng",
-          "label": "Tính trên dư nợ giảm dần; nguồn ghi 25%/năm. Mức thực tế tùy đánh giá tín dụng của FE"
-        },
-        {
-          "original": "Đối tượng theo thông tin nguồn",
-          "value": "Đối tượng theo thông tin nguồn",
-          "label": "Đối tượng theo thông tin nguồn"
-        },
-        {
-          "original": "Khách hàng 20–60 tuổi, thuê bao Viettel hoạt động trên 12 tháng hoặc ViettelPay đã định danh hoạt động trên 3 tháng.",
-          "value": "Khách hàng 20–60 tuổi, thuê bao Viettel hoạt động trên 12 tháng hoặc ViettelPay đã định danh hoạt động trên 3 tháng.",
-          "label": "Khách hàng 20–60 tuổi, thuê bao Viettel hoạt động trên 12 tháng hoặc ViettelPay đã đị"
-        },
-        {
-          "original": "Ví dụ do Viettel Money công bố",
-          "value": "Ví dụ do Viettel Money công bố",
-          "label": "Ví dụ do Viettel Money công bố"
-        },
-        {
-          "original": "Vay 10.000.000đ trong 12 tháng: khoảng 950.000đ/tháng, tổng khoảng 11.400.000đ, chênh lệch so với tiền vay khoảng 1.400.000đ. Đây là số làm tròn theo nguồn; cần xác nhận lịch trả và chi phí thực tế trước khi ký.",
-          "value": "Vay 10.000.000đ trong 12 tháng: khoảng 950.000đ/tháng, tổng khoảng 11.400.000đ, chênh lệch so với tiền vay khoảng 1.400.000đ. Đây là số làm tròn theo nguồn; cần xác nhận lịch trả và chi phí thực tế trước khi ký.",
-          "label": "Vay 10.000.000đ trong 12 tháng: khoảng 950.000đ/tháng, tổng khoảng 11.400.000đ, chênh"
-        },
-        {
-          "original": "APR tối đa và phí:",
-          "value": "APR tối đa và phí:",
-          "label": "APR tối đa và phí:"
-        },
-        {
-          "original": "Nguồn được dẫn chưa nêu APR tối đa hoặc đầy đủ phí, bảo hiểm và điều kiện áp dụng trong ví dụ này. Lãi suất tối thiểu không phải APR tối đa. Cần hỏi bên cho vay về toàn bộ chi phí và tổng nghĩa vụ thanh toán.",
-          "value": "Nguồn được dẫn chưa nêu APR tối đa hoặc đầy đủ phí, bảo hiểm và điều kiện áp dụng trong ví dụ này. Lãi suất tối thiểu không phải APR tối đa. Cần hỏi bên cho vay về toàn bộ chi phí và tổng nghĩa vụ thanh toán.",
-          "label": "Nguồn được dẫn chưa nêu APR tối đa hoặc đầy đủ phí, bảo hiểm và điều kiện áp dụng tro"
-        },
-        {
-          "original": "Xem thông tin gốc tại Viettel Money ↗",
-          "value": "",
-          "label": "Xem thông tin gốc tại Viettel Money ↗"
-        }
-      ]
-    },
-    {
       "key": "benefits",
       "label": "Lợi ích",
       "items": [
@@ -597,9 +501,9 @@
           "label": "Số tiền trên biểu mẫu có phải hạn mức được duyệt?"
         },
         {
-          "original": "Không. Số tiền bạn chọn chỉ thể hiện nhu cầu tham khảo, không phải hạn mức hoặc sản phẩm vay được chào bán. Biểu mẫu tư vấn này không gắn với một sản phẩm vay cụ thể; thông tin tham khảo có dẫn nguồn không phải hạn mức được cấp cho bạn.",
-          "value": "Không. Số tiền bạn chọn chỉ thể hiện nhu cầu tham khảo, không phải hạn mức hoặc sản phẩm vay được chào bán. Biểu mẫu tư vấn này không gắn với một sản phẩm vay cụ thể; thông tin tham khảo có dẫn nguồn không phải hạn mức được cấp cho bạn.",
-          "label": "Không. Số tiền bạn chọn chỉ thể hiện nhu cầu tham khảo, không phải hạn mức hoặc sản p"
+          "original": "Không. Số tiền bạn chọn chỉ thể hiện nhu cầu tham khảo, không phải hạn mức hoặc sản phẩm vay được chào bán. Biểu mẫu tư vấn này không gắn với một sản phẩm vay cụ thể.",
+          "value": "Không. Số tiền bạn chọn chỉ thể hiện nhu cầu tham khảo, không phải hạn mức hoặc sản phẩm vay được chào bán. Biểu mẫu tư vấn này không gắn với một sản phẩm vay cụ thể.",
+          "label": "Không. Số tiền bạn chọn chỉ thể hiện nhu cầu tham khảo, không phải hạn mức hoặc "
         },
         {
           "original": "Gửi biểu mẫu xong có được duyệt vay không?",
