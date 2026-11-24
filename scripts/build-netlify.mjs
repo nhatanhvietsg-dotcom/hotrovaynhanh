@@ -16,9 +16,18 @@ for (const route of routes) {
   await writeFile(resolve(folder, 'index.html'), renderPage(route));
 }
 await writeFile(resolve(output, '404.html'), renderPage('/404'));
+// Explicitly requested public design preview, separate from the ad landing page.
+const previewSource = await readFile(resolve(root, 'drafts/reference-layout.html'), 'utf8');
+const previewScript = previewSource.match(/<script>([\s\S]*?)<\/script>/)?.[1];
+if (!previewScript) throw new Error('Loan design preview script is missing');
+await mkdir(resolve(output, 'ban-nhap-khoan-vay'), { recursive: true });
+await writeFile(resolve(output, 'assets/loan-design-preview.js'), previewScript);
+await writeFile(resolve(output, 'ban-nhap-khoan-vay/index.html'), previewSource.replace(/<script>[\s\S]*?<\/script>/, '<script src="/assets/loan-design-preview.js" defer></script>'));
+await writeFile(resolve(output, 'ban-nhap-khoan-vay/index.html'), previewSource.replace(/<script>[\s\S]*?<\/script>/, '<script src="/assets/loan-design-preview.js" defer></script>'));
 const headers = ['/*', ...Object.entries(security).map(([key, value]) => `  ${key}: ${value}`)];
 if (!config.policiesPublished) headers.push('  X-Robots-Tag: noindex, nofollow');
 headers.push('/api/*','  X-Robots-Tag: noindex, nofollow','/cam-on','  X-Robots-Tag: noindex, nofollow','/cam-on/*','  X-Robots-Tag: noindex, nofollow','/404.html','  X-Robots-Tag: noindex, nofollow');
+headers.push('/ban-nhap-khoan-vay','  X-Robots-Tag: noindex, nofollow','/ban-nhap-khoan-vay/*','  X-Robots-Tag: noindex, nofollow');
 headers.push('/admin/*','  X-Robots-Tag: noindex, nofollow','  Cache-Control: no-store',"  Content-Security-Policy: default-src 'self'; script-src 'self' https://cdn.jsdelivr.net/npm/decap-cms@3.18.0/dist/decap-cms.js; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https://avatars.githubusercontent.com https://raw.githubusercontent.com; font-src 'self' data:; connect-src 'self' https://api.github.com https://api.netlify.com https://raw.githubusercontent.com; frame-src 'self' blob: https://api.netlify.com; frame-ancestors 'self'; worker-src blob:; base-uri 'self'; form-action 'self'; object-src 'none'");
 await writeFile(resolve(output, '_headers'), headers.join('\n') + '\n');
 const runtime = resolve(root, '.netlify-runtime');
